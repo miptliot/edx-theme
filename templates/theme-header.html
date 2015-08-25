@@ -1,10 +1,39 @@
 ## mako
 <%! from django.core.urlresolvers import reverse %>
-<%namespace name='static' file='/static_content.html'/>
+<%namespace name='`ic' file='/static_content.html'/>
 <%inherit file="/navigation.html"/>
 
 ## TODO: this will eventually be moved to the Sass
-<%block name="navigation_logo">
-  <img src="${static.url('themes/default/images/OpenEdXLogo.png')}" height="50" alt="Home Page" />
-</%block>
+## <%block name="navigation_logo">
+##   <img src="${static.url('themes/npoed/static/images/logo.png')}" alt="Home Page" />
+## </%block>
 
+<%block name="navigation_top">
+	<header class="global-header">
+	  <div class="container">
+	    <div class="top-bar row">
+	      <div class="menu col-md-1 col"><a href="#/"><span aria-hidden="true" class="icon menu-icon"></span></a></div>
+	      <div class="col-md-2"><a id="logo" href="/"><img alt="" src="http://dev01.metod.ru:8080/static/img/logo-light.png"></a></div>
+	      <div class="catalog-link col-md-3 col"><a href="/course/"><span aria-hidden="true" class="icon catalog-icon"></span>Каталог курсов</a></div>
+	      <div class="search-form col-md-4 col">
+
+	          <form role="form" class="form-horizontal" action="/course/search" method="POST" name="search" id="search-form"><input type="hidden" name="csrfmiddlewaretoken" value="Ra1Oj5JenW2mA3LWW7T5PQVSMzejJhVS">
+	            <div class="form-group">
+	              <span class="icon search-icon pull-right"></span>
+	              <input type="submit" style="display: none;" value="Искать в каталоге" class="btn btn-default" id="search-btn">
+	              <input class="form-control" name="text" id="search-form-text" placeholder="Найдите интересные знания" value="">
+	            </div>
+	          </form>
+
+	      </div>
+	      <div class="version col-md-2 text-right col">
+	        <span id="sb_login" class="l-btn" style="">
+	          <span class="icon login-icon"></span><a href="/login/npoedsso/?next=/course/itmo/CR/">Вход</a>
+	        </span>
+	        <span id="sb_profile" style="display:none;" class="l-btn"><a href="/profile/" title="Профиль" class="link-profile"><span class="icon profile-icon"></span>Профиль</a></span>
+	        <span id="sb_logout" style="display:none;" class="l-btn"><a href="/logout" title="Выйти" class="link-profile"><span class="icon logout-icon"></span>Выйти</a></span>
+	      </div>
+	    </div>
+		</div>
+	</header>
+</%block>

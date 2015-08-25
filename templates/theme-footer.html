@@ -4,23 +4,57 @@
 <%! from datetime import datetime %>
 <%! from pytz import UTC %>
 
-<div class="wrapper-footer">
-  <footer>
-    <div class="colophon">
-      <nav class="nav-colophon">
-        <ol>
-          <li><a href="${reverse('tos')}">Terms of Service</a></li>
-          <li><a href="${reverse('tos')}#privacy">Privacy Policy</a></li>
-          <li><a href="${reverse('tos')}#honor">Honor Code</a></li>
-          <li><a href="${reverse('tos')}#copyright">Copyright</a></li>
-          <li><a href="${reverse('about')}#careers">Careers</a></li>
-          <li><a href="${reverse('about')}#contact">Contact</a></li>
-          <li><a href="${marketing_link('FAQ')}">Help</a></li>
-        </ol>
-      </nav>
+<footer>
+  <div class="container">
+  <div class="row">
+      <div class="col-md-5 side left-side">
+        <a href="/" class="pull-left"><img src="http://dev01.metod.ru:8080/static/img/logo-small.png" alt="" class="logo-small"></a>
+        <ul class="list-unstyled">
+          <li><a href="">Каталог курсов</a></li>
+          <li><a href="">Направления подготовки</a></li>
+        </ul>
+      </div>
+      <div class="col-md-7 side right-side">
+        <div class="row">
+          <div class="col-md-5">
+            <ul class="list-unstyled narrow">
+              <li><a href="/about/">О платформе</a></li>
+              <li><a href="/faq/">Вопрос-ответ</a></li>
+              <li><a href="#">Для преподавателей </a></li>
+              <li><a href="#">Партнерам</a></li>
+            </ul>
+          </div>
+          <div class="col-md-7">
+            <ul class="list-unstyled wide">
+              <li><a href="#">Условия предоставления услуг</a></li>
+              <li><a href="#">Политика конфиденциальности</a></li>
+              <li><a href="#">Правила использования</a></li>
+              <li><a href="#">Версия для&nbsp;слабовидящих</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
     </div>
-    <div class="references">
-      <span>Built on <a href="http://code.edx.org">OpenEdX</a>.</span>
+
+    <div class="row copyright">
+      <div class="col-md-5">
+        © 2015 Открытое образование
+        <ul class="list-inline">
+          <li>
+            <a href="#"><img src="http://dev01.metod.ru:8080/static/img/social/fb.png" alt=""></a>
+            <a href="#"><img src="http://dev01.metod.ru:8080/static/img/social/vk.png" alt=""></a>
+            <a href="#"><img src="http://dev01.metod.ru:8080/static/img/social/ok.png" alt=""></a>
+            <a href="#"><img src="http://dev01.metod.ru:8080/static/img/social/inst.png" alt=""></a>
+            <a href="#"><img src="http://dev01.metod.ru:8080/static/img/social/tw.png" alt=""></a>
+            <a href="#"><img src="http://dev01.metod.ru:8080/static/img/social/you.png" alt=""></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-7">
+        <div class="warning"><span class="label label-primary">12+</span>Ресурс может содержать материалы для лиц старше 12 лет</div>
+      </div>
     </div>
-  </footer>
-</div>
+  </div>
+</footer>
