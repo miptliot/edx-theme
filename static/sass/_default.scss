@@ -10,18 +10,18 @@
 //-----------------
 
 //Main Color Variables
-$main-color: #f7691f;
-$dark-color: #ea281f; //Link Color
+$main-color: #20323c;
+$dark-color: #4D4D4D; //Link Color
 $light-color: #f4e00c; //Selected Header BG Color, ie. calendar        ***Custom, not from palette***
 $bg-color: #f7fe81; //Selected Content BG Color, ie. calendar          ***Custom, not from palette***
 
 //Main BG Color Variables
-$main-bg: #822537;
+$main-bg: #aaa;
 $main-bg-60: lighten($main-bg, 18.5%); //Main Border/HR Color
 $main-bg-25: lighten($main-bg, 25%); 
 
 //Secondary Color Variables
-$secondary: #b5a4b7;
+$secondary: #20323c;
 $secondary-50: lighten($secondary, 9%);
 $secondary-25: lighten($secondary, 20%); //Important Heading BG Color 
 
@@ -43,11 +43,49 @@ $black-80: #585858;
 //  Font Assignment
 //-----------------
 
-$theme-sans-font: 'Source Sans';
+@font-face {
+  font-family: 'PFBeauSansPro';
+  src: url('../themes/default/fonts/PFBeauSansPro-Regular.eot?#iefix') format('embedded-opentype'), url('../themes/default/fonts/PFBeauSansPro-Regular.woff') format('woff'), url('../themes/default/fonts/PFBeauSansPro-Regular.ttf') format('truetype'), url('../themes/default/fonts/PFBeauSansPro-Regular.svg#PFBeauSansPro-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PFBeauSansPro-Italic';
+  src: url('../themes/default/fonts/PFBeauSansPro-Italic.eot?#iefix') format('embedded-opentype'), url('../themes/default/fonts/PFBeauSansPro-Italic.woff') format('woff'), url('../themes/default/fonts/PFBeauSansPro-Italic.ttf') format('truetype'), url('../themes/default/fonts/PFBeauSansPro-Italic.svg#PFBeauSansPro-Italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PFBeauSansPro-Bold';
+  src: url('../themes/default/fonts/PFBeauSansPro-Bold.eot?#iefix') format('embedded-opentype'), url('../themes/default/fonts/PFBeauSansPro-Bold.woff') format('woff'), url('../themes/default/fonts/PFBeauSansPro-Bold.ttf') format('truetype'), url('../themes/default/fonts/PFBeauSansPro-Bold.svg#PFBeauSansPro-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PFBeauSansPro-Light';
+  src: url('../themes/default/fonts/PFBeauSansPro-Light.eot?#iefix') format('embedded-opentype'), url('../themes/default/fonts/PFBeauSansPro-Light.woff') format('woff'), url('../themes/default/fonts/PFBeauSansPro-Light.ttf') format('truetype'), url('../themes/default/fonts/PFBeauSansPro-Light.svg#PFBeauSansPro-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PFBeauSansPro-Bbook';
+  src: url('../themes/default/fonts/PFBeauSansPro-Bbook.eot?#iefix') format('embedded-opentype'), url('../themes/default/fonts/PFBeauSansPro-Bbook.woff') format('woff'), url('../themes/default/fonts/PFBeauSansPro-Bbook.ttf') format('truetype'), url('../themes/default/fonts/PFBeauSansPro-Bbook.svg#PFBeauSansPro-Bbook') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PFBeauSansPro-SemiBold';
+  src: url('../themes/default/fonts/PFBeauSansPro-SemiBold.eot?#iefix') format('embedded-opentype'), url('../themes/default/fonts/PFBeauSansPro-SemiBold.woff') format('woff'), url('../themes/default/fonts/PFBeauSansPro-SemiBold.ttf') format('truetype'), url('../themes/default/fonts/PFBeauSansPro-SemiBold.svg#PFBeauSansPro-SemiBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+$theme-sans-font: 'PFBeauSansPro';
 $sans-serif: $theme-sans-font, $sans-serif;
 $body-font-family: $sans-serif;
 
-$theme-serif-font: 'Crimson Text';
+$theme-serif-font: 'PFBeauSansPro-Bbook';
 $serif: $theme-serif-font, $serif;
 
 
@@ -62,10 +100,12 @@ $container-bg: $gray-1;
 $login-register-bg: $gray-1;
 $content-wrapper-bg: $gray-1;
 $header-image: none;
-$header-bg: transparentize(lighten($secondary, 18.5%), .25);
+$header-bg: $secondary;
+$header-height: 100px;
+$header-width: 1280px;
 $courseware-header-image: none;
-$courseware-header-bg: transparentize(lighten($secondary, 18.5%), .25);
-$footer-bg: $secondary-25;
+$courseware-header-bg: $secondary;
+$footer-bg: #f8f8f8;
 $courseware-footer-border: 1px solid $main-bg-60;
 $courseware-footer-shadow: box-shadow(2px 1px 0 rgba(0, 0, 0, .1));
 $courseware-footer-margin: 50px;
@@ -78,7 +118,7 @@ $faded-hr-image-5: linear-gradient($main-bg-60 0%, $main-bg-60);
 $faded-hr-image-6: linear-gradient($main-bg-60 0%, $main-bg-60);
 
 $base-font-color: $black;
-$lighter-base-font-color: $black-80;
+$lighter-base-font-color: $gray-1;
 $very-light-text: $gray-1;
 
 $link-color: $dark-color;
@@ -185,7 +225,7 @@ $footer_margin: ($baseline/4) 0;
 //-----------------
 //  CSS BG Images
 //-----------------
-$homepage-bg-image: url('../themes/default/images/sunrise.jpg');
+//$homepage-bg-image: url('../themes/default/images/sunrise.jpg');
 
 $login-banner-image: none;
 $register-banner-image: none;
@@ -205,4 +245,192 @@ $video-thumb-url: '../themes/default/images/edx.png';
 @mixin footer_references_style {
     margin: 0 !important;
     text-align: right;
+}
+
+header.global {
+    height: $header-height;
+    max-width: $header-width !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+header.course-profile {
+    border-bottom: none !important;
+    box-shadow: none !important;
+    height: 420px !important;
+}
+
+header.search {
+    display: none;
+}
+
+.list-inline {
+    list-style: none;
+}
+
+a.register {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+nav.nav-wrapper {
+    margin: 0 !important;
+    max-width: none !important;
+}
+
+.dropdown-menu {
+    left: none !important;
+    top: 42px !important;
+}
+
+h1.logo {
+    margin: 8px 15px 0px 10px !important;
+    width: 25%;
+    text-align: left;
+}
+
+.catalog-icon {
+  background-image: url('../themes/default/images/catalog-icon.png');
+  background-position: 0 0;
+  height: 27px;
+  width:  27px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 7px;
+  overflow: hidden;
+}
+
+a.register, a.register:hover {
+  background-image: none !important;
+  background-color: #126f9a !important;
+}
+
+span.hidden-xs {
+  color: #aaa !important;
+  text-transform: none !important;
+}
+
+ol.user .primary, ol.user .dropdown {
+  border-radius: 4px !important;
+  -moz-border-radius: 4px !important;
+  -webkit-border-radius: 4px !important;
+  -khtml-border-radius: 4px !important;
+  -o-border-radius: 4px !important;
+  -ms-border-radius: 4px !important;
+}
+
+header.global.slim {
+  height: 100px !important;
+  position: relative !important;
+}
+
+header.global.slim h2 {
+  text-shadow: 0 1px 0 #000 !important;
+  -moz-text-shadow: 0 1px 0 #000 !important;
+  -webkit-text-shadow: 0 1px 0 #000 !important;
+  -khtml-text-shadow: 0 1px 0 #000 !important;
+  -o-text-shadow: 0 1px 0 #000 !important;
+  -ms-text-shadow: 0 1px 0 #000 !important;
+  color: #eee !important;
+  font-weight: 100 !important;
+}
+
+header.global.slim span.provider {
+  color: #fff !important;
+}
+
+.wrapper-preview-menu {
+  max-width: 1280px;
+}
+
+.wrapper-footer {
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+.wrapper-footer>footer {
+  max-width: 1010px;
+  right: 0; 
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+footer .narrow {
+  padding: 5px 0 5px 42px;
+  margin-left: 20px;
+  border-left: 1px solid #afafaf;
+}
+
+footer .left-side ul {
+  margin-left: 110px;
+}
+
+footer .left-side a {
+  font-size: 18px;
+  color: #333333;
+  text-decoration: underline;
+}
+
+footer .right-side a {
+  color: #333333;
+  text-decoration: none;
+}
+
+footer .right-side ul {
+  float: left;
+  width: 215px;
+}
+
+footer .copyright {
+  font-size: 13px;
+  color: #999999;
+  margin-top: 32px;
+}
+
+footer .copyright ul {
+  display: inline;
+  margin: 0 0 0 20px;
+}
+
+.list-inline>li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.progress {
+  height: 60px !important;
+}
+
+.instructor-info-action {
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+.instructor-info-action:hover {
+  background-color: rgba(0,0,0,0.35) !important;
+}
+
+header.global.slim h1.logo img {
+  height: none !important;
 }
