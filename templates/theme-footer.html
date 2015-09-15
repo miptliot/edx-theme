@@ -5,22 +5,83 @@
 <%! from pytz import UTC %>
 
 <div class="wrapper-footer">
-  <footer>
-    <div class="colophon">
-      <nav class="nav-colophon">
-        <ol>
-          <li><a href="${reverse('tos')}">Terms of Service</a></li>
-          <li><a href="${reverse('tos')}#privacy">Privacy Policy</a></li>
-          <li><a href="${reverse('tos')}#honor">Honor Code</a></li>
-          <li><a href="${reverse('tos')}#copyright">Copyright</a></li>
-          <li><a href="${reverse('about')}#careers">Careers</a></li>
-          <li><a href="${reverse('about')}#contact">Contact</a></li>
-          <li><a href="${marketing_link('FAQ')}">Help</a></li>
-        </ol>
-      </nav>
+<footer>
+  <div class="container-fluid">
+  <div class="row">
+      <div class="col-md-5  col-sm-12 side left-side" style="margin-top: 0px;">
+        <a href="/" class="pull-left"><img src="https://openedu.ru/static/img/logo-small.png" alt="" class="logo-small"></a>
+        <ul class="list-unstyled">
+          <li><a href="/course">Каталог курсов</a></li>
+          <li><a href="/specialize">Направления подготовки</a></li>
+        </ul>
+      </div>
+      <div class="col-md-7 side right-side hidden-xs">
+        <div class="row">
+          <div class="col-md-5 col-sm-6">
+            <ul class="list-unstyled narrow">
+              <li><a href="http://npoed.ru/about">О проекте</a></li>
+              <li><a href="http://npoed.ru/faq">Вопрос-ответ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-7 col-sm-6">
+            <ul class="list-unstyled wide">
+              <li><a href="/terms/">Пользовательское соглашение</a></li>
+              <li><a href="http://npoed.ru/contacts">Контактная информация</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
     </div>
-    <div class="references">
-      <span>Built on <a href="http://code.edx.org">OpenEdX</a>.</span>
+
+    <div class="row copyright">
+      <div class="col-md-5">
+        © 2015 Открытое образование
+        <ul class="list-inline">
+          <li>
+            <a href="https://www.facebook.com/openeduRU"><img src="https://openedu.ru/static/img/social/fb.png" alt=""></a>
+            <a href="https://vk.com/openeduRU"><img src="https://openedu.ru/static/img/social/vk.png" alt=""></a>
+            <a href="http://ok.ru/group/52786563514445"><img src="https://openedu.ru/static/img/social/ok.png" alt=""></a>
+            <a href="https://instagram.com/openeduRU"><img src="https://openedu.ru/static/img/social/inst.png" alt=""></a>
+            <a href="https://twitter.com/openeduRU"><img src="https://openedu.ru/static/img/social/tw.png" alt=""></a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
   </footer>
+
+##  <footer>
+##    <div class="colophon">
+##      <nav class="nav-colophon">
+##        <ol>
+##          <li><a href="/course">Каталог курсов</a></li>
+##          <li><a href="/specialize">Направления подготовки</a></li>
+##          <li><a href="http://npoed.ru/about">О проекте</a></li>
+##          <li><a href="http://npoed.ru/faq">Вопрос-ответ</a></li>
+##          <li><a href="/terms">Пользовательское соглашение</a></li>
+##          <li><a href="http://npoed.ru/contacts">Контактная информация</a></li>
+####          <li><a href="${marketing_link('FAQ')}">Help</a></li>
+##        </ol>
+##      </nav>
+##    </div>
+##    <div class="references">
+##<div class="row copyright">
+##      <div class="col-md-5">
+##        © 2015 Открытое образование
+##        <ul class="list-inline">
+##          <li>
+##            <a href="https://www.facebook.com/openeduRU"><img src="https://openedu.ru/static/img/social/fb.png" alt=""></a>
+##            <a href="https://vk.com/openeduRU"><img src="https://openedu.ru/static/img/social/vk.png" alt=""></a>
+##            <a href="http://ok.ru/group/52786563514445"><img src="https://openedu.ru/static/img/social/ok.png" alt=""></a>
+##            <a href="https://instagram.com/openeduRU"><img src="https://openedu.ru/static/img/social/inst.png" alt=""></a>
+##            <a href="https://twitter.com/openeduRU"><img src="https://openedu.ru/static/img/social/tw.png" alt=""></a>
+##          </li>
+##        </ul>
+##      </div>
+##    </div>
+####      <span>Built on <a href="http://code.edx.org">OpenEdX</a>.</span>
+##    </div>
+##  </footer>
 </div>
