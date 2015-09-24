@@ -266,7 +266,7 @@ nav.nav-wrapper {
 }
 
 h1.logo {
-    margin: 8px 15px 0px 10px !important;
+    margin: 15px 2px 0px 0px !important;
     width: 25%;
     text-align: left;
 }
@@ -294,12 +294,32 @@ span.hidden-xs {
 }
 
 ol.user .primary, ol.user .dropdown {
-  border-radius: 4px !important;
-  -moz-border-radius: 4px !important;
-  -webkit-border-radius: 4px !important;
-  -khtml-border-radius: 4px !important;
-  -o-border-radius: 4px !important;
-  -ms-border-radius: 4px !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -khtml-box-shadow: none !important;
+  -o-box-shadow: none !important;
+  -ms-box-shadow: none !important;
+  color: $gray-3 !important;
+  text-shadow: none !important;
+  -moz-text-shadow: none !important;
+  -webkit-text-shadow: none !important;
+  -khtml-text-shadow: none !important;
+  -o-text-shadow: none !important;
+  -ms-text-shadow: none !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+}
+
+ol.user {
+  margin-right: -16px !important;
+  margin-top: -28px !important;
+}
+
+.fa-sort-down:before, .fa-sort-desc:before {
+  content: "" !important;
 }
 
 header.global.slim {
@@ -316,6 +336,8 @@ header.global.slim h2 {
   -ms-text-shadow: 0 1px 0 #000 !important;
   color: #eee !important;
   font-weight: 100 !important;
+  font-size: 1.2em !important;
+  margin-top: 26px !important;
 }
 
 header.global.slim span.provider {
@@ -362,7 +384,7 @@ footer .right-side a {
 
 footer .right-side ul {
   float: left;
-  width: 215px;
+  width: 310px;
 }
 
 footer .copyright {
@@ -395,5 +417,41 @@ footer .copyright ul {
 }
 
 header.global.slim h1.logo img {
-  height: none !important;
+  height: inherit !important;
+}
+
+header.global.slim h1.logo:before {
+  background-image: url('../themes/default/images/catalog-icon.png') !important;
+  background-position: 0 0;
+  height: 27px !important;
+  width:  27px !important;
+  background-repeat: no-repeat;
+  top: 7px !important;
+}
+
+label {
+  font: italic 300 1.3rem/1.6rem $serif !important;
+}
+
+a.user-link span.hidden-sm {
+  display: inline-block;
+  margin-top: 5px;
+  color: $gray-3 !important;  
+}
+
+a.user-link span.profile-icon {
+  vertical-align: middle;
+  height: 31px;
+  width: 31px;
+  background-position: 0 0;
+  background-image: url('../themes/default/images/profile-icon.png');
+}
+
+a.dropdown.user-link:hover {
+  background: none !important;
+  color: $gray-1 !important;
+}
+
+a.dropdown.user-link span.profile-icon:hover {
+  background-position: 0px -31px !important;
 }
