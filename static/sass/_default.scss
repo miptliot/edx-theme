@@ -313,9 +313,9 @@ ol.user .primary, ol.user .dropdown {
   font-size: 16px !important;
 }
 
-ol.user {
+header.global ol.user {
   margin-right: -16px !important;
-  margin-top: -28px !important;
+  margin-top: 16px !important;
 }
 
 .fa-sort-down:before, .fa-sort-desc:before {
@@ -338,10 +338,28 @@ header.global.slim h2 {
   font-weight: 100 !important;
   font-size: 1.2em !important;
   margin-top: 26px !important;
+  white-space: normal !important;
+  max-width: 552px;
+  max-height: 56px;
 }
 
 header.global.slim span.provider {
   color: #fff !important;
+}
+
+header.global nav {
+  padding: 10px 2% 12px 2% !important;
+}
+
+header.global .nav-global {
+  margin-top: 18px !important;
+  margin-left: -37px;
+  padding-right: 100px !important;
+  display:block !important;
+}
+
+body.view-incourse header.global.slim .nav-wrapper {
+  padding-top: 5px !important;
 }
 
 .wrapper-preview-menu {
@@ -420,14 +438,16 @@ header.global.slim h1.logo img {
   height: inherit !important;
 }
 
+
 header.global.slim h1.logo:before {
-  background-image: url('../themes/default/images/catalog-icon.png') !important;
+  background-image: none !important;
   background-position: 0 0;
   height: 27px !important;
   width:  27px !important;
   background-repeat: no-repeat;
   top: 7px !important;
 }
+
 
 label {
   font: italic 300 1.3rem/1.6rem $serif !important;
