@@ -55,7 +55,7 @@ site_status_msg = get_site_status_msg(course_id)
       <%block name="navigation_global_links_authenticated">
 ##        % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
           <li class="nav-global-01">
-            <a href="https://openedu.ru/course/">
+            <a href="/course/">
               <span aria-hidden="true" class="icon catalog-icon"></span>
               <span class="hidden-xs">Каталог курсов</span>
             </a>
@@ -97,8 +97,8 @@ site_status_msg = get_site_status_msg(course_id)
         <ul class="dropdown-menu" aria-label="More Options" role="menu">
           <%block name="navigation_dropdown_menu_links" >
 ##            <li><a href="${reverse('dashboard')}">${_("Dashboard")}</a></li>
-            <li><a href="https://openedu.ru/my/">Мои курсы</a></li>
-	    <li><a href="https://sso.openedu.ru/profile/">Профиль</a></li>
+            <li><a href="/my/">Мои курсы</a></li>
+	    <li><a href="${settings.SSO_NPOED_URL}/profile/">Профиль</a></li>
 ##            <li><a href="${reverse('account_settings')}">${_("Account")}</a></li>
           </%block>
           <li><a href="${reverse('social-logout')}" role="menuitem">Выйти</a></li>
@@ -123,7 +123,7 @@ site_status_msg = get_site_status_msg(course_id)
           </li>
 ##          % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
             <li class="nav-global-02">
-              <a href="https://openedu.ru/course/">
+              <a href="/course/">
                 <span aria-hidden="true" class="icon catalog-icon"></span>
                 <span class="hidden-xs">Каталог курсов</span>
               </a>
@@ -138,7 +138,7 @@ site_status_msg = get_site_status_msg(course_id)
       % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
           % if settings.FEATURES.get('ENABLE_COURSE_DISCOVERY'):
           <li class="nav-global-05">
-            <a href="https://openedu.ru/course/">
+            <a href="/course/">
               <span aria-hidden="true" class="icon catalog-icon"></span>
               <span class="hidden-xs">Каталог курсов</span>
             </a>
