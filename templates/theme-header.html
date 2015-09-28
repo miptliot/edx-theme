@@ -98,7 +98,7 @@ site_status_msg = get_site_status_msg(course_id)
           <%block name="navigation_dropdown_menu_links" >
 ##            <li><a href="${reverse('dashboard')}">${_("Dashboard")}</a></li>
             <li><a href="/my/">Мои курсы</a></li>
-	    <li><a href="${settings.SSO_NPOED_URL}/profile/">Профиль</a></li>
+	    <li><a href="${settings.SSO_NPOED_URL}profile/">Профиль</a></li>
 ##            <li><a href="${reverse('account_settings')}">${_("Account")}</a></li>
           </%block>
           <li><a href="${reverse('social-logout')}" role="menuitem">Выйти</a></li>
