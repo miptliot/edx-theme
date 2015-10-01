@@ -210,6 +210,10 @@ $video-thumb-url: '../themes/default/images/edx.png';
     text-align: right;
 }
 
+.window-wrap {
+    min-width: 0px;
+}
+
 header.global {
     height: $header-height;
     max-width: $header-width !important;
