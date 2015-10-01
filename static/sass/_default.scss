@@ -291,6 +291,7 @@ a.register, a.register:hover {
 span.hidden-xs {
   color: #aaa !important;
   text-transform: none !important;
+  font-size: 16px !important;
 }
 
 ol.user .primary, ol.user .dropdown {
@@ -354,7 +355,7 @@ header.global nav {
 
 header.global .nav-global {
   margin-top: 18px !important;
-  margin-left: -37px;
+  margin-left: 0px !important;
   padding-right: 100px !important;
   display:block !important;
 }
@@ -475,4 +476,8 @@ a.dropdown.user-link:hover {
 
 a.dropdown.user-link span.profile-icon:hover {
   background-position: 0px -31px !important;
+}
+
+div.eqv {
+  padding-top: 5px;
 }
