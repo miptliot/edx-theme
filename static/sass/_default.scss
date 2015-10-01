@@ -211,7 +211,7 @@ $video-thumb-url: '../themes/default/images/edx.png';
 }
 
 .window-wrap {
-    min-width: 0px;
+    min-width: 0px !important;
 }
 
 header.global {
