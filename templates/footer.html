@@ -8,34 +8,50 @@
 <%namespace name='static' file='static_content.html'/>
 
 <div class="wrapper wrapper-footer">
-  <footer id="footer-openedx"
-    ## When rendering the footer through the branding API,
-    ## the direction may not be set on the parent element,
-    ## so we set it here.
-    % if bidi:
-      dir=${bidi}
-    % endif
-  >
-    <div class="colophon">
-        <ol>
-        </ol>
-      </nav>
-
-      <div class="wrapper-logo">
-      </div>
-
-      ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-
-      <nav class="nav-legal" aria-label="${_('Legal')}">
-        <ul>
+  <footer id="footer-openedx">
+  <div class="container-fluid">
+  <div class="row">
+      <div class="col-md-5  col-sm-12 side left-side" style="margin-top: 0px;">
+        <a href="/" class="pull-left"><img src="${static.url('themes/default/images/logo-small.png')}" alt="" class="logo-small"></a>
+        <ul class="list-unstyled">
+          <li><a href="/course">Каталог курсов</a></li>
+          <li><a href="/specialize">Направления подготовки</a></li>
         </ul>
-      </nav>
+      </div>
+      <div class="col-md-7 side right-side hidden-xs">
+        <div class="row">
+          <div class="col-md-5 col-sm-6">
+            <ul class="list-unstyled narrow">
+              <li><a href="/about">О проекте</a></li>
+              <li><a href="/faq">Вопрос-ответ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-7 col-sm-6 eqv">
+            <ul class="list-unstyled wide">
+              <li><a href="/terms/">Пользовательское соглашение</a></li>
+              <li><a href="/contacts">Контактная информация</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
-    ## Please leave this link and use one of the logos provided
-    ## The OpenEdX link may be hidden when this view is served
-    ## through an API to partner sites (such as marketing sites or blogs),
-    ## which are not technically powered by OpenEdX.
+   <div class="row copyright">
+      <div class="col-md-5">
+        © 2015 Открытое образование
+        <ul class="list-inline">
+          <li>
+            <a href="https://www.facebook.com/openeduRU"><img src="${static.url('themes/default/images/fb.png')}" alt=""></a>
+            <a href="https://vk.com/openeduRU"><img src="${static.url('themes/default/images/vk.png')}" alt=""></a>
+            <a href="http://ok.ru/group/52786563514445"><img src="${static.url('themes/default/images/ok.png')}" alt=""></a>
+            <a href="https://instagram.com/openeduRU"><img src="${static.url('themes/default/images/inst.png')}" alt=""></a>
+            <a href="https://twitter.com/openeduRU"><img src="${static.url('themes/default/images/tw.png')}" alt=""></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4" style="margin-top: -21px; margin-left: 54px;"></div>
+    </div>
+  </div>
   </footer>
 </div>
 % if include_dependencies:
