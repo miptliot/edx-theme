@@ -57,7 +57,7 @@ site_status_msg = get_site_status_msg(course_id)
         <div class="catalog-link col col-md-3 col-sm-4 hidden-xs">
           % if user.is_authenticated():
             <%block name="navigation_global_links_authenticated">
-                  <a href="${settings.FEATURES.get('PLP_URL','')}/course">
+                  <a href="${settings.PLP_URL}course">
                     <span aria-hidden="true" class="icon catalog-icon"></span>
                     <span class="hidden-xs">Каталог курсов</span>
                   </a>
