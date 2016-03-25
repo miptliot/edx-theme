@@ -47,7 +47,7 @@ site_status_msg = get_site_status_msg(course_id)
       <div class="row top-bar">
 
         <div class="col-xs-10 col-sm-3 col-md-3">
-          <a class="logo" href="${settings.PLP_URL}">
+          <a class="logo" href="${marketing_link('ROOT')}">
             <%block name="navigation_logo">
                 <img src="${static.url('themes/default/images/OpenEdXLogo.png')}" alt="${platform_name()}"/>
             </%block>
@@ -57,7 +57,7 @@ site_status_msg = get_site_status_msg(course_id)
         <div class="catalog-link col col-md-3 col-sm-4 hidden-xs">
           % if user.is_authenticated():
             <%block name="navigation_global_links_authenticated">
-                  <a href="${settings.PLP_URL}/course">
+                  <a href="/courses/">
                     <span aria-hidden="true" class="icon catalog-icon"></span>
                     <span class="hidden-xs">Каталог курсов</span>
                   </a>
@@ -95,7 +95,7 @@ site_status_msg = get_site_status_msg(course_id)
               </span>
               <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
                     <%block name="navigation_dropdown_menu_links" >
-                      <li><a href="${settings.PLP_URL}/my/">Мои курсы</a></li>
+                      <li><a href="/my/">Мои курсы</a></li>
                       <li><a href="${settings.SSO_NPOED_URL}/profile/">Профиль</a></li>
                     </%block>
                     <li><a href="${reverse('social-logout')}" role="menuitem">Выйти</a></li>
