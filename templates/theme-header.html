@@ -42,19 +42,20 @@ site_status_msg = get_site_status_msg(course_id)
 </div>
 % endif
 </%block>
-<header id="global-navigation" class="global-header ${"slim" if course else ""}" >
+<header id="global-navigation" class="header ${"slim" if course else ""}" >
     <div class="container-fluid" aria-label="${_('Global')}">
-      <div class="row top-bar">
-
-        <div class="col-xs-10 col-sm-3 col-md-3">
-          <a class="logo" href="${settings.PLP_URL}">
+      <div class="header__row top-bar row">
+        <div class="header__col">
+          <a class="header__logo" id="logo" href="${settings.PLP_URL}">
             <%block name="navigation_logo">
-                <img src="${static.url('themes/default/images/OpenEdXLogo.png')}" alt="${platform_name()}"/>
+                ##<img src="${static.url('themes/default/images/OpenEdXLogo.png')}" alt="${platform_name()}"/>
+                <img src="https://courses.mipt.ru/static/img/logo.png" alt="${platform_name()}"/>
             </%block>
           </a>
         </div>
 
-        <div class="catalog-link col col-md-3 col-sm-4 hidden-xs">
+<!--
+        <div class="header__col catalog-link col col-md-3 col-sm-4 hidden-xs">
           % if user.is_authenticated():
             <%block name="navigation_global_links_authenticated">
                   <a href="${settings.PLP_URL}/course">
@@ -68,8 +69,9 @@ site_status_msg = get_site_status_msg(course_id)
             </%block>
           %endif
         </div>
+-->
 
-        <div class="hidden-xs col-sm-3 col-md-3 col">
+        <div class="hidden-xs col header__col">
           % if course and user.is_authenticated():
             <div class="course-header">
 ##      ${course.display_number_with_default | h}
@@ -85,7 +87,7 @@ site_status_msg = get_site_status_msg(course_id)
           % endif
         </div>
 
-        <div class="version col-md-3 col-sm-2 text-right aut-block col-xs-2 col">
+        <div class="version text-right aut-block col header__col">
           % if user.is_authenticated():
             <div class="dropdown" id="sb_profile">
               <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
@@ -103,24 +105,24 @@ site_status_msg = get_site_status_msg(course_id)
             </div>
           % else:
             % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-              <span id="sb_login">
+	      <span id="sb_login" class="l-btn">
                 % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                  <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">
-                    <span class="icon profile-icon"></span>
-                    <span class="hidden-sm hidden-xs">Войти</span>
-                  </a>
+			<a href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}" class="header__link">
+			    <span class="miptx-icon miptx-icon--lock header__icon"></span>
+			    <span class="hidden-sm hidden-xs header__title">Войти</span>
+			</a>
                 % else:
                     % if third_party_auth.is_enabled():
                         % for enabled in provider.Registry.enabled():
                             % if not enabled.get_setting('use_for_cms'):
-                              <a class="cta cta-login" href="${pipeline.get_login_url(enabled.provider_id, pipeline.AUTH_ENTRY_LOGIN)}${login_query()}">
-                                <span class="icon profile-icon"></span>
-                                <span class="hidden-sm hidden-xs">Войти</span>
+                              <a class="header__link" href="${pipeline.get_login_url(enabled.provider_id, pipeline.AUTH_ENTRY_LOGIN)}${login_query()}">
+			    <span class="miptx-icon miptx-icon--lock header__icon"></span>
+			    <span class="hidden-sm hidden-xs header__title">Войти</span>
                               </a>
                             % endif
                         % endfor
                     % else:
-                      <a class="cta cta-register" href="/register${login_query()}">${_("Register Now")}</a>
+                      <a class="header__link" href="/register${login_query()}">${_("Register Now")}</a>
                     % endif
                 % endif
               </span>
