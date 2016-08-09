@@ -76,6 +76,7 @@ a:focus {
     text-align: center;
 }
 
+
 /** HEADER */
 
 .header {
@@ -100,6 +101,7 @@ a:focus {
     .container-fluid {
         width: auto;
         max-width: $base-width;
+        height: 100%;
     }
 
     &__col {
@@ -116,6 +118,7 @@ a:focus {
 .header__row {
     font-size: 12px;
     display: flex;
+    height: 100%;
     align-items: center;
 
     .dropdown-toggle {
@@ -241,9 +244,10 @@ a:focus {
 /** FOOTER */
 
 
-footer {
+.footer {
     margin-top: 20px;
     padding: 20px 0;
+    line-height: 1.4;
 
     background-color: $gray;
 
@@ -322,12 +326,16 @@ footer {
 
 
 
-.container-wrapper + footer {
+.container-wrapper + .footer {
     margin-top: 0px;
 }
 
 .footer__logo {
-    margin-right: 40px;
+    img {
+        max-width: 120px;
+        height: auto
+        margin-right: 40px;
+    }
 }
 
 .footer__social-list {
@@ -337,7 +345,7 @@ footer {
     }
 }
 @media (max-width: 769px) {
-    footer {
+    .footer {
         .left-side a {
             display: block;
             float: none !important;
