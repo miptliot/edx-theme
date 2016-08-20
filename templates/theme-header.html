@@ -20,10 +20,10 @@ import branding
 # app that handles site status messages
 from status.status import get_site_status_msg
 %>
-
 ## Provide a hook for themes to inject branding on top.
 <%block name="navigation_top" />
-
+<link rel="stylesheet" type="text/css" href="/static/themes/default/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/css/lms-course.css">
 <%block>
 <%
 try:
@@ -87,7 +87,7 @@ site_status_msg = get_site_status_msg(course_id)
 
         <div class="version col-md-3 col-sm-2 text-right aut-block col-xs-2 col">
           % if user.is_authenticated():
-            <div class="dropdown" id="sb_profile">
+            <div class="" id="sb_profile" style="position: relative; cursor:pointer; margin-bottom: -80px;">
               <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
                 <span class="icon profile-icon"></span>
                 <span class="hidden-sm hidden-xs">Мой профиль</span>
@@ -137,3 +137,15 @@ site_status_msg = get_site_status_msg(course_id)
 % endif
 
 <%include file="help_modal.html"/>
+<script>
+$(document).mouseup(function (e)
+{
+    var container = $("#sb_profile");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        $("#sb_profile").removeClass("open");
+    }
+});
+</script>
