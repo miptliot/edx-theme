@@ -19,6 +19,8 @@ from third_party_auth import provider, pipeline
 import branding
 # app that handles site status messages
 from status.status import get_site_status_msg
+
+import requests
 %>
 ## Provide a hook for themes to inject branding on top.
 <%block name="navigation_top" />
@@ -87,7 +89,7 @@ site_status_msg = get_site_status_msg(course_id)
 
         <div class="version col-md-3 col-sm-2 text-right aut-block col-xs-2 col">
           % if user.is_authenticated():
-            <div class="" id="sb_profile" style="position: relative; cursor:pointer; margin-bottom: -80px;">
+            <div class="text-left" id="sb_profile">
               <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
                 <span class="icon profile-icon"></span>
                 <span class="hidden-sm hidden-xs">Мой профиль</span>
@@ -97,6 +99,19 @@ site_status_msg = get_site_status_msg(course_id)
                     <%block name="navigation_dropdown_menu_links" >
                       <li><a href="${settings.PLP_URL}/my/"><span>Мои курсы</span></a></li>
                       <li><a href="${settings.SSO_NPOED_URL}/profile/">Профиль</a></li>
+                      <%
+                      try:
+                          r = requests.get("{}/api/upd-menu/".format(settings.PLP_URL),
+                                           params={"username": user.username},
+                                           headers={'X-PLP-Api-Key': settings.PLP_API_KEY},
+                                           timeout=settings.PLP_CONNECTION_TIMEOUT)
+                          assert r.status_code == 200
+                      except:
+                          upd_menu = ""
+                      else:
+                          upd_menu = r.content
+                      %>
+                      ${upd_menu}
                     </%block>
                     <li><a href="${reverse('social-logout')}" role="menuitem">Выйти</a></li>
               </ul>
