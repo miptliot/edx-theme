@@ -28,10 +28,10 @@ $head-bg: #20333c;
     font-weight: normal;
     font-style: normal;
 
-    src: url('../themes/default/fonts/PFBeauSansPro-Regular.eot?#iefix') format('embedded-opentype'),
-    url('../themes/default/fonts/PFBeauSansPro-Regular.woff') format('woff'),
-    url('../themes/default/fonts/PFBeauSansPro-Regular.ttf') format('truetype'),
-    url('../themes/default/fonts/PFBeauSansPro-Regular.svg#PFBeauSansPro-Regular') format('svg');
+    src: url('../fonts/PFBeauSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/PFBeauSansPro-Regular.woff') format('woff'),
+    url('../fonts/PFBeauSansPro-Regular.ttf') format('truetype'),
+    url('../fonts/PFBeauSansPro-Regular.svg#PFBeauSansPro-Regular') format('svg');
 }
 
 @font-face {
@@ -39,10 +39,10 @@ $head-bg: #20333c;
     font-weight: bold;
     font-style: normal;
 
-    src: url('../themes/default/fonts/PFBeauSansPro-SemiBold.eot?#iefix') format('embedded-opentype'),
-    url('../themes/default/fonts/PFBeauSansPro-SemiBold.woff') format('woff'),
-    url('../themes/default/fonts/PFBeauSansPro-SemiBold.ttf') format('truetype'),
-    url('../themes/default/fonts/PFBeauSansPro-SemiBold.svg#PFBeauSansPro-SemiBold') format('svg');
+    src: url('../fonts/PFBeauSansPro-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/PFBeauSansPro-SemiBold.woff') format('woff'),
+    url('../fonts/PFBeauSansPro-SemiBold.ttf') format('truetype'),
+    url('../fonts/PFBeauSansPro-SemiBold.svg#PFBeauSansPro-SemiBold') format('svg');
 }
 
 @font-face {
@@ -50,10 +50,10 @@ $head-bg: #20333c;
     font-weight: bold;
     font-style: normal;
 
-    src: url('../themes/default/fonts/PFBeauSansPro-Bold.eot?#iefix') format('embedded-opentype'),
-    url('../themes/default/fonts/PFBeauSansPro-Bold.woff') format('woff'),
-    url('../themes/default/fonts/PFBeauSansPro-Bold.ttf') format('truetype'),
-    url('../themes/default/fonts/PFBeauSansPro-Bold.svg#PFBeauSansPro-Bold') format('svg');
+    src: url('../fonts/PFBeauSansPro-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/PFBeauSansPro-Bold.woff') format('woff'),
+    url('../fonts/PFBeauSansPro-Bold.ttf') format('truetype'),
+    url('../fonts/PFBeauSansPro-Bold.svg#PFBeauSansPro-Bold') format('svg');
 }
 
 @font-face {
@@ -61,10 +61,10 @@ $head-bg: #20333c;
     font-weight: normal;
     font-style: normal;
 
-    src: url('../themes/default/fonts/PFBeauSansPro-Italic.eot?#iefix') format('embedded-opentype'),
-    url('../themes/default/fonts/PFBeauSansPro-Italic.woff') format('woff'),
-    url('../themes/default/fonts/PFBeauSansPro-Italic.ttf') format('truetype'),
-    url('../themes/default/fonts/PFBeauSansPro-Italic.svg#PFBeauSansPro-Italic') format('svg');
+    src: url('../fonts/PFBeauSansPro-Italic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/PFBeauSansPro-Italic.woff') format('woff'),
+    url('../fonts/PFBeauSansPro-Italic.ttf') format('truetype'),
+    url('../fonts/PFBeauSansPro-Italic.svg#PFBeauSansPro-Italic') format('svg');
 }
 
 @font-face {
@@ -72,10 +72,10 @@ $head-bg: #20333c;
     font-weight: normal;
     font-style: normal;
 
-    src: url('../themes/default/fonts/PFBeauSansPro-Light.eot?#iefix') format('embedded-opentype'),
-    url('../themes/default/fonts/PFBeauSansPro-Light.woff') format('woff'),
-    url('../themes/default/fonts/PFBeauSansPro-Light.ttf')  format('truetype'),
-    url('../themes/default/fonts/PFBeauSansPro-Light.svg#PFBeauSansPro-Light') format('svg');
+    src: url('../fonts/PFBeauSansPro-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/PFBeauSansPro-Light.woff') format('woff'),
+    url('../fonts/PFBeauSansPro-Light.ttf')  format('truetype'),
+    url('../fonts/PFBeauSansPro-Light.svg#PFBeauSansPro-Light') format('svg');
 }
 
 .dropdown {
@@ -146,14 +146,14 @@ $head-bg: #20333c;
     }
 
     .catalog-icon {
-        background-image: url('../themes/default/images/catalog-icon.png');
+        background-image: url('../images/catalog-icon.png');
         background-position: 0 0;
         height: 27px;
     }
 
 
     .profile-icon {
-        background-image: url('../themes/default/images/profile-icon.png');
+        background-image: url('../images/profile-icon.png');
         background-position: 0 0;
         width: 31px;
         height: 31px;

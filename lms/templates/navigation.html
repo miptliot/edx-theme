@@ -8,8 +8,6 @@
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 
-from microsite_configuration import microsite
-from microsite_configuration.templatetags.microsite import platform_name
 from ccx.overrides import get_current_ccx
 
 import third_party_auth
@@ -49,7 +47,7 @@ site_status_msg = get_site_status_msg(course_id)
         <div class="col-xs-10 col-sm-3 col-md-3">
           <a class="logo" href="${marketing_link('ROOT')}">
             <%block name="navigation_logo">
-                <img src="${static.url('themes/default/images/OpenEdXLogo.png')}" alt="${platform_name()}"/>
+                <img src="${static.url('default/images/OpenEdXLogo.png')}" alt="${platform_name}"/>
             </%block>
           </a>
         </div>
