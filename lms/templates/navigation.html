@@ -1,0 +1,137 @@
+## mako
+<%! from django.core.urlresolvers import reverse %>
+<%namespace name='static' file='/static_content.html'/>
+##<%inherit file="/navigation.html"/>
+
+<%namespace file='main.html' import="login_query"/>
+<%!
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
+
+from ccx.overrides import get_current_ccx
+
+import third_party_auth
+from third_party_auth import provider, pipeline
+
+# App that handles subdomain specific branding
+import branding
+# app that handles site status messages
+from status.status import get_site_status_msg
+%>
+
+## Provide a hook for themes to inject branding on top.
+<%block name="navigation_top" />
+
+<%block>
+<%
+try:
+    course_id = course.id
+except:
+    # can't figure out a better way to get at a possibly-defined course var
+    course_id = None
+site_status_msg = get_site_status_msg(course_id)
+%>
+% if site_status_msg:
+<div class="site-status">
+  <div class="inner-wrapper">
+    <span class="white-error-icon"></span>
+    <p>${site_status_msg}</p>
+  </div>
+</div>
+% endif
+</%block>
+<header id="global-navigation" class="global-header ${"slim" if course else ""}" >
+    <div class="container-fluid" aria-label="${_('Global')}">
+      <div class="row top-bar">
+
+        <div class="col-xs-10 col-sm-3 col-md-3">
+          <a class="logo" href="${marketing_link('ROOT')}">
+            <%block name="navigation_logo">
+                <img src="${static.url('default/images/OpenEdXLogo.png')}" alt="${platform_name}"/>
+            </%block>
+          </a>
+        </div>
+
+        <div class="catalog-link col col-md-3 col-sm-4 hidden-xs">
+          % if user.is_authenticated():
+            <%block name="navigation_global_links_authenticated">
+                  <a href="/courses/">
+                    <span aria-hidden="true" class="icon catalog-icon"></span>
+                    <span class="hidden-xs">Каталог курсов</span>
+                  </a>
+              %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
+                ## Translators: This is short for "System administration".
+                <a href="${reverse('sysadmin')}">${_("Sysadmin")}</a>
+              %endif
+            </%block>
+          %endif
+        </div>
+
+        <div class="hidden-xs col-sm-3 col-md-3 col">
+          % if course and user.is_authenticated():
+            <div class="course-header">
+##      ${course.display_number_with_default | h}
+            <%
+              display_name = course.display_name_with_default
+              if settings.FEATURES.get('CUSTOM_COURSES_EDX', False):
+                ccx = get_current_ccx(course.id)
+                if ccx:
+                  display_name = ccx.display_name
+            %>
+            ${display_name}
+            </div>
+          % endif
+        </div>
+
+        <div class="version col-md-3 col-sm-2 text-right aut-block col-xs-2 col">
+          % if user.is_authenticated():
+            <div class="dropdown" id="sb_profile">
+              <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                <span class="icon profile-icon"></span>
+                <span class="hidden-sm hidden-xs">Мой профиль</span>
+                <span class="sr">${_("More options dropdown")}</span>
+              </span>
+              <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                    <%block name="navigation_dropdown_menu_links" >
+                      <li><a href="/my/">Мои курсы</a></li>
+                      <li><a href="${settings.SSO_NPOED_URL}/profile/">Профиль</a></li>
+                    </%block>
+                    <li><a href="${reverse('social-logout')}" role="menuitem">Выйти</a></li>
+              </ul>
+            </div>
+          % else:
+            % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+              <span id="sb_login">
+                % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+                  <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">
+                    <span class="icon profile-icon"></span>
+                    <span class="hidden-sm hidden-xs">Войти</span>
+                  </a>
+                % else:
+                    % if third_party_auth.is_enabled():
+                        % for enabled in provider.Registry.enabled():
+                            % if not enabled.get_setting('use_for_cms'):
+                              <a class="cta cta-login" href="${pipeline.get_login_url(enabled.provider_id, pipeline.AUTH_ENTRY_LOGIN)}${login_query()}">
+                                <span class="icon profile-icon"></span>
+                                <span class="hidden-sm hidden-xs">Войти</span>
+                              </a>
+                            % endif
+                        % endfor
+                    % else:
+                      <a class="cta cta-register" href="/register${login_query()}">${_("Register Now")}</a>
+                    % endif
+                % endif
+              </span>
+            % endif
+          % endif
+        </div>
+      </div>
+    </div>
+</header>
+% if course:
+<!--[if lte IE 9]>
+<div class="ie-banner" aria-hidden="true">${_('<strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using {chrome_link} or {ff_link}.').format(chrome_link='<a href="https://www.google.com/chrome" target="_blank">Chrome</a>', ff_link='<a href="http://www.mozilla.org/firefox" target="_blank">Firefox</a>')}</div>
+<![endif]-->
+% endif
+
+<%include file="help_modal.html"/>
