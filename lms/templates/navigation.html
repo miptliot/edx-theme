@@ -40,91 +40,64 @@ site_status_msg = get_site_status_msg(course_id)
 </div>
 % endif
 </%block>
-<header id="global-navigation" class="global-header ${"slim" if course else ""}" >
+<header id="global-navigation" class="global-header header ${"slim" if course else ""}" >
     <div class="container-fluid" aria-label="${_('Global')}">
-      <div class="row top-bar">
+      <div class="row top-bar header__row">
 
-        <div class="col-xs-10 col-sm-3 col-md-3">
-          <a class="logo" href="${marketing_link('ROOT')}">
+        <div class="header__logo">
+          <a class="header__logo-link" href="/">
             <%block name="navigation_logo">
-                <img src="${static.url('default/images/OpenEdXLogo.png')}" alt="${platform_name}"/>
+              <img class="header__logo-img" src="${static.url('default/images/OpenEdXLogo.png')}" alt="${platform_name}"/>
             </%block>
           </a>
         </div>
-
-        <div class="catalog-link col col-md-3 col-sm-4 hidden-xs">
-          % if user.is_authenticated():
-            <%block name="navigation_global_links_authenticated">
-                  <a href="/courses/">
-                    <span aria-hidden="true" class="icon catalog-icon"></span>
-                    <span class="hidden-xs">Каталог курсов</span>
-                  </a>
-              %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
-                ## Translators: This is short for "System administration".
-                <a href="${reverse('sysadmin')}">${_("Sysadmin")}</a>
-              %endif
-            </%block>
-          %endif
+        <nav class="header__nav">
+          <a class="header__nav-link" href="https://openedu.ru/course/">Каталог курсов</a>
+          <a class="header__nav-link header__nav-link--2" href="https://openedu.ru/partners/apply">Сотрудничество</a>
+          <a class="header__nav-link header__nav-link--3" href="http://npoed.ru/about">О проекте</a>
+        </nav>
+        <div class="header__search search-form">
+              <form role="form" action="https://openedu.ru/course/" name="search" id="search-form" autocomplete="off">
+              <div class="form-group">
+                  <span class="icon search-icon pull-right" id="search-icon"></span>
+                  <input class="form-control" name="text" maxlength="255" id="search-form-text" placeholder="Поиск в каталоге"> </div>
+              </form>
         </div>
+        % if user.is_authenticated():
+          <div class="header__dropdown-wrapper" id="sb_profile" style="z-index: 1000">
+              <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                  <span class="icon profile-icon"></span>
+                  <span class="hidden-sm hidden-xs">Мой профиль</span>
+                  <span class="sr">${_("More options dropdown")}</span>
+                </span>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                      <%block name="navigation_dropdown_menu_links" >
+                        <li><a href="/my/">Мои курсы</a></li>
+                        <li><a href="${settings.SSO_NPOED_URL}/profile/">Профиль</a></li>
+                      </%block>
+                      <li><a href="${reverse('social-logout')}" role="menuitem">Выйти</a></li>
+                </ul>
+              </div>
 
-        <div class="hidden-xs col-sm-3 col-md-3 col">
-          % if course and user.is_authenticated():
-            <div class="course-header">
-##      ${course.display_number_with_default | h}
-            <%
-              display_name = course.display_name_with_default
-              if settings.FEATURES.get('CUSTOM_COURSES_EDX', False):
-                ccx = get_current_ccx(course.id)
-                if ccx:
-                  display_name = ccx.display_name
-            %>
-            ${display_name}
-            </div>
+              </div>
+          </div>
+        % else:
+          % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+              <div class="header__buttons" id="sb_login">
+                $('#search-form').submit(function (e) {
+                  window.location.href = this.action + '#query=' + $('#search-form-text').val();
+                  e.preventDefault();
+                  e.stopPropagation();
+                });
+              
+                $('#search-icon').click(function () {
+                  $('#search-form').trigger('submit');
+                }); <a href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}" class="header__button">Вход</a>
+                  <a href="{{ SSO_URL }}/register" class="header__button header__button--primary">Регистрация</a>
+              </div>
           % endif
-        </div>
-
-        <div class="version col-md-3 col-sm-2 text-right aut-block col-xs-2 col">
-          % if user.is_authenticated():
-            <div class="dropdown" id="sb_profile">
-              <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                <span class="icon profile-icon"></span>
-                <span class="hidden-sm hidden-xs">Мой профиль</span>
-                <span class="sr">${_("More options dropdown")}</span>
-              </span>
-              <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
-                    <%block name="navigation_dropdown_menu_links" >
-                      <li><a href="/my/">Мои курсы</a></li>
-                      <li><a href="${settings.SSO_NPOED_URL}/profile/">Профиль</a></li>
-                    </%block>
-                    <li><a href="${reverse('social-logout')}" role="menuitem">Выйти</a></li>
-              </ul>
-            </div>
-          % else:
-            % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-              <span id="sb_login">
-                % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                  <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">
-                    <span class="icon profile-icon"></span>
-                    <span class="hidden-sm hidden-xs">Войти</span>
-                  </a>
-                % else:
-                    % if third_party_auth.is_enabled():
-                        % for enabled in provider.Registry.enabled():
-                            % if not enabled.get_setting('use_for_cms'):
-                              <a class="cta cta-login" href="${pipeline.get_login_url(enabled.provider_id, pipeline.AUTH_ENTRY_LOGIN)}${login_query()}">
-                                <span class="icon profile-icon"></span>
-                                <span class="hidden-sm hidden-xs">Войти</span>
-                              </a>
-                            % endif
-                        % endfor
-                    % else:
-                      <a class="cta cta-register" href="/register${login_query()}">${_("Register Now")}</a>
-                    % endif
-                % endif
-              </span>
-            % endif
-          % endif
-        </div>
+        % endif
       </div>
     </div>
 </header>

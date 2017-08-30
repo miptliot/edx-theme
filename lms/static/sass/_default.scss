@@ -77,6 +77,9 @@ $head-bg: #20333c;
     url('../fonts/PFBeauSansPro-Light.ttf')  format('truetype'),
     url('../fonts/PFBeauSansPro-Light.svg#PFBeauSansPro-Light') format('svg');
 }
+body {
+    font-family: PFBeauSansPro;
+}
 
 .dropdown {
     position: absolute;
@@ -116,23 +119,14 @@ $head-bg: #20333c;
     padding-right: 20px;
 }
 
-
 .global-header {
-    z-index: 999;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100px;
-    max-width: none;
-    margin: 0 auto;
-
-    background-color: #20323c;
-    font-family: 'PFBeauSansPro', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  z-index: 999;
+  background-color: #20323c;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 999;
 
     .icon {
         width: 36px;
@@ -159,146 +153,232 @@ $head-bg: #20333c;
         height: 31px;
     }
 
-    .container-fluid {
-        max-width: 1280px;
-    }
-
-    .col {
-        padding-top: 35px;
-    }
-
-    .logo {
-        display: block;
-
-        padding-top: 26px;
-    }
-
-    .container {
-        width: auto;
-        max-width: $base-with;
-    }
-
     .course-header {
         height: 36px;
         line-height: 36px;
         display: inline-block;
         color: #ccc;
     }
+    .search-icon {
+        background-image: url('../images/search-icon.png');
+    }
+  .container-fluid{
+    height: 100%;
+  }
+  .col{
+    padding-top: 35px;
+  }
+  .logo{
+    display: block;
+    padding-top: 26px;
+
+  }
+  .top-bar .catalog-link a{padding-left: 0;}
 }
 
-.top-bar {
-    .dropdown-toggle {
-        font-size: 16px;
+.header {
 
-        color: #ccc;
-        &:hover {
-            color: $light;
-            .profile-icon {
-                background-position: 0 -31px;
-            }
-        }
-    }
-    .open {
-        .dropdown-toggle {
-            color: $link-hover;
-            .profile-icon {
-                background-position: 0 -62px;
-            }
-            &:hover {
-                color: $link-hover;
-                .profile-icon {
-                    background-position: 0 -62px;
-                }
-            }
-        }
-    }
-    a {
-        font-size: $base-size+7;
-        font-size: $base-size+4;
-        line-height: 27px;
+  &__logo {
+    margin-right: 10px;
+  }
 
-        text-decoration: none;
+  .header__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    height: 100%;
+    font-size: 16px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 
-        color: #ccc;
+  .dropdown-toggle {
+    font-size: 16px;
+    color: #ccc;
+  }
 
-        &:hover {
-            text-decoration: none;
+  .header__nav-link {
+    color: #ccc;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-decoration: none;
+    font-size: 16px;
 
-            color: $light;
-            .catalog-icon {
-                background-position: 0 -27px;
-            }
-        }
+    &:last-child {
+      padding-right: 0px;
     }
-    .menu a {
-        padding-left: 10px;
+
+    &:first-child {
+      padding-left: 0px;
     }
-    .catalog-link {
-        .icon {
-            width: 25px;
-        }
-        a {
-            padding-left: 0;
-        }
+    
+    &--3 {
+      @media screen and (max-width: 950px) {
+        display: none;
+      }
     }
+    &--2 {
+      @media screen and (max-width: 850px) {
+        display: none;
+      }
+    }
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  &__logo-link {
+    display: block;
+  }
+
+  &__logo-img {
+    height: 35px;
+  }
+
+  &__dropdown-wrapper {
+    position: relative;
+    min-width: 230px;
+    margin-top: -32px;
+  }
+
+  &__search {
+    .form-control {
+      width: 100%;
+      background: rgba(255,255,255, 0.5);
+      border: none;
+      border-radius: 3px;
+      color: white;
+      height: 30px;
+      font-size: 16px;
+      box-sizing: border-box;
+      padding-bottom: 6px;
+      padding-left: 12px;
+      padding-right: 37px;
+      padding-top: 6px;
+      &::-webkit-input-placeholder {
+        color: rgba(255,255,255,0.4)
+      }
+      &:-ms-input-placeholder {
+        color: rgba(255,255,255,0.4)
+      }
+      &::placeholder {
+        color: rgba(255,255,255,0.4)
+      }
+    }
+    @media screen and (max-width: 750px) {
+      min-width: 150px;
+    }
+
     .form-group {
-        position: relative;
-
-        width: 100%;
-        margin-bottom: 0;
-
-        border-bottom: 1px solid $light;
-        .form-control {
-            width: 100%;
-            height: $base-size+10;
-            padding: 0 34px 0 0;
-
-            color: $gray;
-            border: none;
-            background: transparent;
-        }
+      position: relative;
+      margin: 0;
     }
+
+    .search-icon {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+
+    }
+
+  }
+
+
+  &__button {
+    color: white;
+    display: inline-block;
+    font-family: PFBeauSansPro-SemiBold;
+    color: white;
+    border: 1px solid white;
+    background: transparent;
+    font-weight: normal;
+    border-radius: 3px;
+    // padding: 8px 10px 5px;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 85px;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    &:first-child {
+      margin-left: 0;
+    }
+    &::last-child {
+      margin-right: 0;
+    }
+
+    &:hover,
+    &:focus {
+      background: white;
+      color: $light-blue;
+    }
+    
+  }
+
+  &__button--primary {
+    border: 1px solid $light-blue;
+    background: $light-blue;
+
+    &:hover,
+    &:focus {
+      border: 1px solid $active-btn-blue;
+      background-color: $active-btn-blue;
+      color: $light;
+    }
+  }
 }
+
+
 
 #sb_profile {
-    float: right;
-    z-index:2;
-
-    margin-top: -10px;
-    padding: 10px;
-
+  .dropdown {
     border-radius: 5px;
-    &.open {
-        height: 9.5em;
-
-        background-color: $light;
-        -webkit-box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .2);
-           -moz-box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .2);
-                box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .2);
+    float: right;
+    padding: 10px;
+    margin-top: -10px;
+    &.open{
+      background-color: $light;
+      box-shadow:         0px 5px 30px 0px rgba(0, 0, 0, 0.2);
     }
-    .dropdown-menu {
-        font-size: $base-size+4;
-
-        top: 2em;
-
-        width: 100%;
-
-        border: none;
-        border-radius: 0;
+  }
+  .dropdown-toggle:after {
+    content: "\A";
+    white-space: pre;
+  }
+  .dropdown-menu{
+    top: -5px;
+    margin-bottom: -5px;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    border-radius:0;
+    background-color: transparent;
+    position: relative;
+    font-size: $base-size+4;
+    a{
+      padding: 3px 20px 3px 45px;
+      color: $dark;
+      font-size: $base-size+4;
+      &:hover{
+        color: $link-hover;
         background-color: transparent;
-        box-shadow: none;
-        a {
-            font-size: $base-size+4;
-
-            padding: 3px 20px 3px 45px;
-
-            color: $dark;
-            &:hover {
-                color: $link-hover;
-                background-color: transparent;
-            }
-        }
+      }
     }
+  }
 }
 
 #sb_login {
@@ -312,14 +392,16 @@ $head-bg: #20333c;
 
 
 @media (max-width: 992px) {
-    #sb_profile {
-        width: 160px;
-        .dropdown-menu a {
-            min-width: 50px;
-            padding-right: 5px;
-            padding-left: 5px;
-        }
+  #sb_profile{
+    .dropdown {
+      width: 160px;
     }
+    .dropdown-menu a{
+      min-width: 50px;
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+  }
 }
 
 @media (max-width: 769px) {
@@ -333,9 +415,6 @@ $head-bg: #20333c;
     font-family: 'PFBeauSansPro', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
     background-color: $light-gray;
-
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     .left-side {
         ul {
