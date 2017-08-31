@@ -54,7 +54,6 @@
   <script type="text/javascript" >
       $(function () {
           var dropdown = $('.dropdown');
-          console.log(dropdown);
           dropdown.click( function() {
               dropdown.toggleClass('open');
           });
@@ -67,5 +66,10 @@
           $('#search-icon').click(function () {
             $('#search-form').trigger('submit');
           });
+          $('#sb_profile a').on('click', function() {
+            if($(this).attr('href') != null) {
+              window.location = $(this).attr('href');
+            }
+          })
       });
   </script>

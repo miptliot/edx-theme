@@ -73,7 +73,7 @@ site_status_msg = get_site_status_msg(course_id)
                 </span>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
                       <%block name="navigation_dropdown_menu_links" >
-                        <li><a href="/my/">Мои курсы</a></li>
+                        <li><a href="${settings.PLP_URL}/my/">Мои курсы</a></li>
                         <li><a href="${settings.SSO_NPOED_URL}/profile/">Профиль</a></li>
                       </%block>
                       <li><a href="${reverse('social-logout')}" role="menuitem">Выйти</a></li>
@@ -85,15 +85,6 @@ site_status_msg = get_site_status_msg(course_id)
         % else:
           % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
               <div class="header__buttons" id="sb_login">
-                $('#search-form').submit(function (e) {
-                  window.location.href = this.action + '#query=' + $('#search-form-text').val();
-                  e.preventDefault();
-                  e.stopPropagation();
-                });
-              
-                $('#search-icon').click(function () {
-                  $('#search-form').trigger('submit');
-                }); <a href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}" class="header__button">Вход</a>
                   <a href="{{ SSO_URL }}/register" class="header__button header__button--primary">Регистрация</a>
               </div>
           % endif
