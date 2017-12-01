@@ -62,12 +62,16 @@
       dropdown.click( function() {
           dropdown.toggleClass('open');
       });
+      //temp click
+      $('#siteMenu').click(function(){
+        e.preventDefault();
+        $(this).toggleClass('open');
+      });
       $('#search-form').submit(function (e) {
         e.preventDefault();
         e.stopPropagation();
         window.location.href = this.action + '#query=' + $('#search-form-text').val();
       });
-    
       $('#search-icon').click(function () {
         $('#search-form').trigger('submit');
       });
