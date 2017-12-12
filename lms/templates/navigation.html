@@ -44,6 +44,36 @@ site_status_msg = get_site_status_msg(course_id)
     <div class="container-fluid" aria-label="${_('Global')}">
       <div class="row top-bar header__row">
 
+        <div class="header__dropdown-wrapper header__dropdown-main">
+            <div class="dropdown" id="siteMenu">
+              <span class="dropdown-toggle">
+                <div class="burger-icon">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </span>
+              <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <div class="header__search search-form search-form--mobile">
+                    <form role="form" action="${settings.PLP_URL}/course/" name="search" id="search-form" autocomplete="off">
+                    <div class="form-group">
+                        <span class="icon search-icon pull-right" id="search-icon"></span>
+                        <input type="submit" style="display: none;" value="Искать в каталоге" class="btn btn-default" id="search-btn">
+                        <input class="form-control" name="text" maxlength="255" id="search-form-text" placeholder="Искать..."> </div>
+                    </form>
+                  </div>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="${settings.PLP_URL}/course/">
+                      Каталог курсов</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="${settings.PLP_URL}/partners/apply/" title="">
+                      Сотрудничество</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://npoed.ru/about">
+                      О проекте</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="${settings.PLP_URL}/feedback">
+                      Помощь</a></li>
+              </ul>
+            </div>
+        </div>
         <div class="header__logo">
           <a class="header__logo-link" href="/">
             <%block name="navigation_logo">
@@ -56,27 +86,27 @@ site_status_msg = get_site_status_msg(course_id)
           <a class="header__nav-link header__nav-link--2" href="${settings.PLP_URL}/partners/apply">Сотрудничество</a>
           <a class="header__nav-link header__nav-link--3" href="http://npoed.ru/about">О проекте</a>
         </nav>
-        <div class="header__search search-form">
-              <form role="form" action="${settings.PLP_URL}/course/" name="search" id="search-form" autocomplete="off">
-              <div class="form-group">
-                  <span class="icon search-icon pull-right" id="search-icon"></span>
-                  <input class="form-control" name="text" maxlength="255" id="search-form-text" placeholder="Поиск в каталоге"> </div>
-              </form>
+        <div class="header__search search-form search-form--desktop">
+          <form role="form" action="${settings.PLP_URL}/course/" name="search" id="search-form" autocomplete="off">
+          <div class="form-group">
+              <span class="icon search-icon pull-right" id="search-icon"></span>
+              <input class="form-control" name="text" maxlength="255" id="search-form-text" placeholder="Поиск в каталоге"> </div>
+          </form>
         </div>
         % if user.is_authenticated():
-          <div class="header__dropdown-wrapper" id="sb_profile" style="z-index: 1000">
+          <div class="header__dropdown-wrapper header__dropdown-login" id="sb_profile" style="z-index: 1000">
               <div class="dropdown">
                 <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
                   <span class="icon profile-icon"></span>
-                  <span class="hidden-sm hidden-xs">Мой профиль</span>
+                  <span class="dropdown-login__text">Мой профиль</span>
                   <span class="sr">${_("More options dropdown")}</span>
                 </span>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
-                      <%block name="navigation_dropdown_menu_links" >
-                        <li><a href="${settings.PLP_URL}/my/">Мои курсы</a></li>
-                        <li><a href="${settings.SSO_NPOED_URL}/profile/">Профиль</a></li>
-                      </%block>
-                      <li><a href="${reverse('social-logout')}" role="menuitem">Выйти</a></li>
+                  <%block name="navigation_dropdown_menu_links" >
+                    <li><a href="${settings.PLP_URL}/my/">Мои курсы</a></li>
+                    <li><a href="${settings.SSO_NPOED_URL}/profile/">Профиль</a></li>
+                  </%block>
+                  <li><a href="${reverse('social-logout')}" role="menuitem">Выйти</a></li>
                 </ul>
               </div>
 
