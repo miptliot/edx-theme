@@ -104,7 +104,7 @@
 @media (max-width: 992px) {
   #sb_profile{
     .dropdown {
-      width: 160px;
+      width: 165px;
     }
     .dropdown-menu a{
       min-width: 50px;
@@ -239,6 +239,7 @@
     color: #ccc;
     padding-left: 8px;
     padding-right: 8px;
+    text-decoration: none;
     &:last-child {
       padding-right: 0px;
     }
@@ -246,7 +247,10 @@
       padding-left: 0px;
     }
     &:hover {
-      color: white;
+      color: #fff;
+    }
+    &:visited {
+      color: #ccc;
     }
   }
 
@@ -284,6 +288,7 @@
   .dropdown-login {
     &__text {
       display: inline-block;
+      color: #ccc;
     }
   }
   &__search {
@@ -295,8 +300,10 @@
       color: white;
       height: 30px;
       font-size: 16px;
-      padding-bottom: 3px;
-      padding-right: 37px;
+      padding: 6px 37px 6px 12px;
+      &:focus {
+        outline: none;
+      }
       &::placeholder {
         color: rgba(255,255,255,0.4)
       }
@@ -320,7 +327,7 @@
       height: 30px;
       margin: 0;
       border: none;
-      background: transparent url(../img/search-icon.png) center no-repeat;
+      background: transparent url(../images/search-icon.png) center no-repeat;
       &:focus {
         outline: none;
       }

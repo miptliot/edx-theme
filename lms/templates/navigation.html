@@ -59,7 +59,7 @@ site_status_msg = get_site_status_msg(course_id)
                     <form role="form" action="${settings.PLP_URL}/course/" name="search" id="search-form" autocomplete="off">
                     <div class="form-group">
                         <span class="icon search-icon pull-right" id="search-icon"></span>
-                        <input type="submit" style="display: none;" value="Искать в каталоге" class="btn btn-default" id="search-btn">
+                        <input type="submit" style="display: none;" value="Искать в каталоге" class="btn btn-default" id="m-search-btn">
                         <input class="form-control" name="text" maxlength="255" id="search-form-text" placeholder="Искать..."> </div>
                     </form>
                   </div>
@@ -83,11 +83,11 @@ site_status_msg = get_site_status_msg(course_id)
         </div>
         <nav class="header__nav">
           <a class="header__nav-link" href="${settings.PLP_URL}/course/">Каталог курсов</a>
-          <a class="header__nav-link header__nav-link--2" href="${settings.PLP_URL}/partners/apply">Сотрудничество</a>
-          <a class="header__nav-link header__nav-link--3" href="http://npoed.ru/about">О проекте</a>
+          <a class="header__nav-link" href="${settings.PLP_URL}/partners/apply">Сотрудничество</a>
+          <a class="header__nav-link" href="http://npoed.ru/about">О проекте</a>
         </nav>
         <div class="header__search search-form search-form--desktop">
-          <form role="form" action="${settings.PLP_URL}/course/" name="search" id="m-search-form" autocomplete="off">
+          <form role="form" action="${settings.PLP_URL}/course/" name="search" id="search-form" autocomplete="off">
           <div class="form-group">
               <span class="icon search-icon pull-right" id="search-icon"></span>
               <input class="form-control" name="text" maxlength="255" id="search-form-text" placeholder="Поиск в каталоге"> </div>
@@ -99,7 +99,6 @@ site_status_msg = get_site_status_msg(course_id)
                 <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
                   <span class="icon profile-icon"></span>
                   <span class="dropdown-login__text">Мой профиль</span>
-                  <span class="sr">${_("More options dropdown")}</span>
                 </span>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
                   <%block name="navigation_dropdown_menu_links" >
