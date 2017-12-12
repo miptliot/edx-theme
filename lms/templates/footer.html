@@ -60,12 +60,7 @@
     $(function () {
       var dropdown = $('.dropdown');
       dropdown.click( function() {
-          dropdown.toggleClass('open');
-      });
-      //temp click
-      $('#siteMenu').click(function(){
-        e.preventDefault();
-        $(this).toggleClass('open');
+          $(this).toggleClass('open');
       });
       $('#search-form').submit(function (e) {
         e.preventDefault();
