@@ -3,7 +3,7 @@
   z-index: 999;
   background-color: #20323c;
   top: 0;
-  font-family: PFBeauSansPro;
+  font-family: 'PFBeauSansPro';
   left: 0;
   width: 100%;
   height: 100px;
@@ -190,7 +190,7 @@
     padding: 10px;
     margin-top: -10px;
     &.open{
-      background-color: @light;
+      background-color: $light;
       -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.2);
       -moz-box-shadow:    0px 5px 30px 0px rgba(0, 0, 0, 0.2);
       box-shadow:         0px 5px 30px 0px rgba(0, 0, 0, 0.2);
@@ -209,13 +209,13 @@
     border-radius:0;
     background-color: transparent;
     position: relative;
-    font-size: @base-size+4;
+    font-size: $base-size+4;
     a{
       padding: 3px 20px 3px 45px;
-      color: @dark;
-      font-size: @base-size+4;
+      color: $dark;
+      font-size: $base-size+4;
       &:hover{
-        color: @link-hover;
+        color: $link-hover;
         background-color: transparent;
       }
     }
@@ -330,7 +330,7 @@
   &__button {
     color: white;
     display: inline-block;
-    font-family: PFBeauSansPro-SemiBold;
+    font-family: 'PFBeauSansPro-SemiBold';
     color: white;
     border: 1px solid white;
     background: transparent;
@@ -354,18 +354,18 @@
     &:hover,
     &:focus {
       background: white;
-      color: @light-blue;
+      color: $light-blue;
     }
   }
 
   &__button--primary {
-    border: 1px solid @light-blue;
-    background: @light-blue;
+    border: 1px solid $light-blue;
+    background: $light-blue;
     &:hover,
     &:focus {
-      border: 1px solid @active-btn-blue;
-      background-color: @active-btn-blue;
-      color: @light;
+      border: 1px solid $active-btn-blue;
+      background-color: $active-btn-blue;
+      color: $light;
     }
   }
 
@@ -469,6 +469,6 @@
 
 
 /* TEMP STYLE */
-#search-form {
+#m-search-form {
   display: none !important;
 }
