@@ -13,11 +13,6 @@
           <li><a href="${settings.PLP_URL}/course">Каталог курсов</a></li>
           <li><a href="${settings.PLP_URL}/specialize">Направления подготовки</a></li>
         </ul>
-        <a href="http://openedx.org" class="openedx-logo">
-        <img
-          src="https://sso.openedu.ru/static/img/edx-openedx-logo-tag.png"
-           width="150" height="50" alt="Powered by Open edX" />
-        </a>
       </div>
       <div class="col-md-7 side right-side hidden-xs">
         <div class="row">
@@ -27,7 +22,7 @@
               <li><a href="${settings.PLP_URL}/faq/">Вопрос-ответ</a></li>
             </ul>
           </div>
-          <div class="col-md-7 col-sm-6 eqv">
+          <div class="col-md-7 col-sm-6">
             <ul class="list-unstyled wide">
               <li><a href="${settings.PLP_URL}/terms/">Пользовательское соглашение</a></li>
               <li><a href="${settings.PLP_URL}/contacts">Контактная информация</a></li>
@@ -38,21 +33,45 @@
       </div>
     </div>
 
-   <div class="row copyright">
-      <div class="col-md-5">
+    <div class="row">
+      <div class="col-md-5 hidden-xs hidden-sm">
+        <a href="http://openedx.org" target="_blank" class="openedx-logo">
+          <img src="https://sso.openedu.ru/static/img/edx-openedx-logo-tag.png" width="150" height="50" alt="Powered by Open edX" />
+        </a>
+      </div>
+    </div>
+
+    <div class="row copyright">
+      <div class="col-xs-12 col-md-5 copyright__sign">
         © 2017 Открытое образование
         <ul class="list-inline">
           <li>
-            <a href="https://www.facebook.com/openeduRU"><img src="${static.url('default/images/fb.png')}" alt=""></a>
-            <a href="https://vk.com/openeduRU"><img src="${static.url('default/images/vk.png')}" alt=""></a>
-            <a href="http://ok.ru/group/52786563514445"><img src="${static.url('default/images/ok.png')}" alt=""></a>
-            <a href="https://instagram.com/openeduRU"><img src="${static.url('default/images/inst.png')}" alt=""></a>
-            <a href="https://twitter.com/openeduRU"><img src="${static.url('default/images/tw.png')}" alt=""></a>
+            <a href="https://www.facebook.com/openeduRU" target="_blank" title="Группа Национальной платформы открытого образования в facebook">
+              <img src="${static.url('default/images/fb.png')}">
+            </a>
+          </li>
+          <li>
+            <a href="https://vk.com/openeduRU" target="_blank" title="Группа Национальной платформы открытого образования в Vk">
+              <img src="${static.url('default/images/vk.png')}">
+            </a>
+          </li>
+          <li>
+            <a href="http://ok.ru/group/52786563514445" target="_blank" title="Группа Национальной платформы открытого образования в Ok">
+              <img src="${static.url('default/images/ok.png')}">
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/openeduRU" target="_blank" title="Страница Национальной платформы открытого образования в instagram">
+              <img src="${static.url('default/images/inst.png')}">
+            </a>
+          </li>
+          <li>  
+            <a href="https://twitter.com/openeduRU" target="_blank" title="Страница Национальной платформы открытого образования в twitter">
+              <img src="${static.url('default/images/tw.png')}">
+            </a>
           </li>
         </ul>
       </div>
-      <div class="col-md-4" style="margin-top: -21px; margin-left: 54px;">
-  </div>
     </div>
   </div>
   </footer>
