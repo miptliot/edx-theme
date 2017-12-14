@@ -1,27 +1,15 @@
 // miptliot theme
 $base-size: 12px;
-$small-size: 10px;
-
-$base-with: 1010px;
 
 $dark: #333;
 $light: #fff;
-$dark-red: #dd482a;
-$gray: #ccc;
+
 $medium-gray: #999;
 $light-gray: #f8f8f8;
-$topbar-gray: #ccc;
-$gray-border: #ddd;
-$card-border: #e1e1e1;
-$text-gray: #888;
-$blue: #2b5deb;
 
 $active-btn-blue: #6cc7ff;
 $light-blue: #4799cb;
 $link-hover: #489acc;
-$green: #5ebc2e;
-$passive: #e3e3e3;
-$head-bg: #20333c;
 
 @font-face {
     font-family: 'PFBeauSansPro';
@@ -88,16 +76,10 @@ body {
         box-sizing: border-box;
     }
 
-    .row {
-        margin-left: -20px;
-        margin-right: -20px;
-    }
-
     .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
         padding-right: 20px;
         padding-left: 20px;
     }
-
 
     .container-fluid, .container {
         max-width: 1010px;
@@ -814,9 +796,12 @@ body {
 .global-footer {
     padding: 20px 0;
     font-family: 'PFBeauSansPro', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
     background-color: $light-gray;
     box-sizing: border-box;
+    .row {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
     .left-side {
         ul {
             margin-left: 110px;
