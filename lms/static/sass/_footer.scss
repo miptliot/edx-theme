@@ -1,0 +1,126 @@
+.global-footer {
+    padding: 20px 0;
+    font-family: 'PFBeauSansPro', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: $light-gray;
+    box-sizing: border-box;
+    .row {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+    .left-side {
+        ul {
+            margin-left: 110px;
+            line-height: 1.4;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        a {
+            font-size: 18px;
+            text-decoration: underline;
+            color: $dark;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    .right-side {
+        font-size: 15px;
+        a {
+            text-decoration: none;
+            color: $dark;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        ul {
+            float: left;
+            width: 215px;
+        }
+    }
+    .narrow {
+        margin-left: 20px;
+        padding: 5px 0 5px 42px;
+        border-left: 1px solid #afafaf;
+    }
+    .wide {
+        margin-left: 50px;
+        padding: 5px 0;
+        li {
+            white-space: nowrap;
+        }
+    }
+    .list-inline > li {
+        display: inline-block;
+        padding-left: 0;
+        padding-right: 5px;
+    }
+    .openedx-logo {
+        display: block;
+        margin-top: 0;
+    }
+    .copyright {
+        font-size: 13px;
+        margin-top: 0;
+        color: $medium-gray;
+        &__sign {
+            margin-top: 55px;
+        }
+        ul {
+            display: inline;
+            margin: 0 0 0 20px;
+        }
+        .warning {
+            padding-left: 30px;
+            .label {
+                margin-right: 15px;
+                margin-left: 33px;
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 769px) {
+    .global-footer {
+        .left-side a {
+            display: block;
+            float: none !important;
+        }
+        .left-side ul {
+            margin: 20px 0;
+        }
+        .narrow {
+            float: none;
+
+            margin: 0;
+            padding: 0;
+
+            border: none;
+        }
+        .wide {
+            margin: 0;
+            padding: 0;
+        }
+        .list-inline > li {
+            padding-left: 0;
+        }
+        .copyright {
+          margin-top: 10px;
+            &__sign {
+                margin-top: 20px;
+            }
+            ul {
+                display: block;
+                margin: 20px 0 0 0;
+            }
+            .warning {
+                padding: 0;
+                .label {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

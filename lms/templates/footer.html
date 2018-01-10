@@ -1,0 +1,98 @@
+## mako
+<%! from django.core.urlresolvers import reverse %>
+<%namespace name='static' file='/static_content.html'/>
+<%! from datetime import datetime %>
+<%! from pytz import UTC %>
+
+<footer class="global-footer">
+  <div class="container-fluid">
+  <div class="row">
+      <div class="col-md-5  col-sm-12 side left-side">
+        <a href="${settings.PLP_URL}" class="pull-left"><img src="${static.url('default/images/logo-small.png')}" alt="" class="logo-small"></a>
+        <ul class="list-unstyled">
+          <li><a href="${settings.PLP_URL}/course">Каталог курсов</a></li>
+          <li><a href="${settings.PLP_URL}/specialize">Направления подготовки</a></li>
+        </ul>
+      </div>
+      <div class="col-md-7 side right-side hidden-xs">
+        <div class="row">
+          <div class="col-md-5 col-sm-6">
+            <ul class="list-unstyled narrow">
+              <li><a href="http://npoed.ru/about">О проекте</a></li>
+              <li><a href="${settings.PLP_URL}/faq/">Вопрос-ответ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-7 col-sm-6">
+            <ul class="list-unstyled wide">
+              <li><a href="${settings.PLP_URL}/terms/">Пользовательское соглашение</a></li>
+              <li><a href="${settings.PLP_URL}/contacts">Контактная информация</a></li>
+              <li><a href="${settings.PLP_URL}/feedback">Задать вопрос</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5 hidden-xs hidden-sm">
+        <a href="http://openedx.org" target="_blank" class="openedx-logo">
+          <img src="https://sso.openedu.ru/static/img/edx-openedx-logo-tag.png" width="150" height="50" alt="Powered by Open edX" />
+        </a>
+      </div>
+    </div>
+
+    <div class="row copyright">
+      <div class="col-xs-12 col-md-5 copyright__sign">
+        © 2017 Открытое образование
+        <ul class="list-inline">
+          <li>
+            <a href="https://www.facebook.com/openeduRU" target="_blank" title="Группа Национальной платформы открытого образования в facebook">
+              <img src="${static.url('default/images/fb.png')}">
+            </a>
+          </li>
+          <li>
+            <a href="https://vk.com/openeduRU" target="_blank" title="Группа Национальной платформы открытого образования в Vk">
+              <img src="${static.url('default/images/vk.png')}">
+            </a>
+          </li>
+          <li>
+            <a href="http://ok.ru/group/52786563514445" target="_blank" title="Группа Национальной платформы открытого образования в Ok">
+              <img src="${static.url('default/images/ok.png')}">
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/openeduRU" target="_blank" title="Страница Национальной платформы открытого образования в instagram">
+              <img src="${static.url('default/images/inst.png')}">
+            </a>
+          </li>
+          <li>  
+            <a href="https://twitter.com/openeduRU" target="_blank" title="Страница Национальной платформы открытого образования в twitter">
+              <img src="${static.url('default/images/tw.png')}">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </footer>
+  <script type="text/javascript" >
+    $(function () {
+      var dropdown = $('.dropdown');
+      dropdown.click( function() {
+          $(this).toggleClass('open');
+      });
+      $('#search-form').submit(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.href = this.action + '#query=' + $('#search-form-text').val();
+      });
+      $('#search-icon').click(function () {
+        $('#search-form').trigger('submit');
+      });
+      $('.header__dropdown-wrapper a').on('click', function() {
+        if($(this).attr('href') != null) {
+          window.location = $(this).attr('href');
+        }
+      })
+  });
+  </script>

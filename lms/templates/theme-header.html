@@ -3,13 +3,12 @@
 <%namespace name='static' file='/static_content.html'/>
 ##<%inherit file="/navigation.html"/>
 
-<%namespace file='main.html' import="login_query, stanford_theme_enabled"/>
+<%namespace file='main.html' import="login_query"/>
 <%!
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 
 from microsite_configuration import microsite
-from microsite_configuration.templatetags.microsite import platform_name
 from ccx.overrides import get_current_ccx
 
 import third_party_auth
@@ -20,10 +19,10 @@ import branding
 # app that handles site status messages
 from status.status import get_site_status_msg
 %>
-
 ## Provide a hook for themes to inject branding on top.
 <%block name="navigation_top" />
-
+<link rel="stylesheet" type="text/css" href="/static/default/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/css/lms-course.css">
 <%block>
 <%
 try:
@@ -47,9 +46,9 @@ site_status_msg = get_site_status_msg(course_id)
       <div class="row top-bar">
 
         <div class="col-xs-10 col-sm-3 col-md-3">
-          <a class="logo" href="${marketing_link('ROOT')}">
+          <a class="logo" href="${settings.PLP_URL}">
             <%block name="navigation_logo">
-                <img src="${static.url('themes/default/images/OpenEdXLogo.png')}" alt="${platform_name()}"/>
+                <img src="${static.url('default/images/OpenEdXLogo.png')}"/>
             </%block>
           </a>
         </div>
@@ -57,7 +56,7 @@ site_status_msg = get_site_status_msg(course_id)
         <div class="catalog-link col col-md-3 col-sm-4 hidden-xs">
           % if user.is_authenticated():
             <%block name="navigation_global_links_authenticated">
-                  <a href="/courses/">
+                  <a href="${settings.PLP_URL}/course">
                     <span aria-hidden="true" class="icon catalog-icon"></span>
                     <span class="hidden-xs">Каталог курсов</span>
                   </a>
@@ -87,7 +86,7 @@ site_status_msg = get_site_status_msg(course_id)
 
         <div class="version col-md-3 col-sm-2 text-right aut-block col-xs-2 col">
           % if user.is_authenticated():
-            <div class="dropdown" id="sb_profile">
+            <div class="" id="sb_profile" style="position: relative; cursor:pointer; margin-bottom: -80px;">
               <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
                 <span class="icon profile-icon"></span>
                 <span class="hidden-sm hidden-xs">Мой профиль</span>
@@ -95,7 +94,7 @@ site_status_msg = get_site_status_msg(course_id)
               </span>
               <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
                     <%block name="navigation_dropdown_menu_links" >
-                      <li><a href="/my/">Мои курсы</a></li>
+                      <li><a href="${settings.PLP_URL}/my/"><span>Мои курсы</span></a></li>
                       <li><a href="${settings.SSO_NPOED_URL}/profile/">Профиль</a></li>
                     </%block>
                     <li><a href="${reverse('social-logout')}" role="menuitem">Выйти</a></li>
@@ -137,3 +136,15 @@ site_status_msg = get_site_status_msg(course_id)
 % endif
 
 <%include file="help_modal.html"/>
+<script>
+$(document).mouseup(function (e)
+{
+    var container = $("#sb_profile");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        $("#sb_profile").removeClass("open");
+    }
+});
+</script>

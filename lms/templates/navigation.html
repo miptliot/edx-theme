@@ -1,0 +1,134 @@
+## mako
+<%! from django.core.urlresolvers import reverse %>
+<%namespace name='static' file='/static_content.html'/>
+##<%inherit file="/navigation.html"/>
+
+<%namespace file='main.html' import="login_query"/>
+<%!
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
+
+from ccx.overrides import get_current_ccx
+
+import third_party_auth
+from third_party_auth import provider, pipeline
+
+# App that handles subdomain specific branding
+import branding
+# app that handles site status messages
+from status.status import get_site_status_msg
+%>
+
+## Provide a hook for themes to inject branding on top.
+<%block name="navigation_top" />
+
+<%block>
+<%
+try:
+    course_id = course.id
+except:
+    # can't figure out a better way to get at a possibly-defined course var
+    course_id = None
+site_status_msg = get_site_status_msg(course_id)
+%>
+% if site_status_msg:
+<div class="site-status">
+  <div class="inner-wrapper">
+    <span class="white-error-icon"></span>
+    <p>${site_status_msg}</p>
+  </div>
+</div>
+% endif
+</%block>
+<header id="global-navigation" class="global-header header ${"slim" if course else ""}" >
+    <div class="container-fluid" aria-label="${_('Global')}">
+      <div class="top-bar header__row">
+
+        <div class="header__dropdown-wrapper header__dropdown-main">
+            <div class="dropdown" id="siteMenu">
+              <span class="dropdown-toggle">
+                <div class="burger-icon">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </span>
+              <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <div class="header__search search-form search-form--mobile" style="display: none;">
+                    <form role="form" action="${settings.PLP_URL}/course/" name="search" id="search-form" autocomplete="off">
+                    <div class="form-group">
+                        <span class="icon search-icon pull-right" id="search-icon"></span>
+                        <input type="submit" style="display: none;" value="Искать в каталоге" class="btn btn-default">
+                        <input class="form-control" name="text" maxlength="255" id="search-form-text" placeholder="Искать..."> </div>
+                    </form>
+                  </div>
+                  <li role="presentation">
+                  	<a href="${settings.PLP_URL}/course/">Каталог курсов</a>
+                  </li>
+                  <li role="presentation">
+                  	<a href="${settings.PLP_URL}/partners/apply/">Сотрудничество</a>
+                  </li>
+                  <li role="presentation">
+                  	<a href="http://npoed.ru/about">О проекте</a>
+                  </li>
+                  <li role="presentation">
+                  	<a href="${settings.PLP_URL}/feedback">Помощь</a>
+                  </li>
+              </ul>
+            </div>
+        </div>
+        <div class="header__logo">
+          <a class="header__logo-link" href="/">
+            <%block name="navigation_logo">
+              <img class="header__logo-img" src="${static.url('default/images/OpenEdXLogo.png')}" alt="${platform_name}"/>
+            </%block>
+          </a>
+        </div>
+        <nav class="header__nav">
+          <a class="header__nav-link" href="${settings.PLP_URL}/course/">Каталог курсов</a>
+          <a class="header__nav-link" href="${settings.PLP_URL}/partners/apply">Сотрудничество</a>
+          <a class="header__nav-link" href="http://npoed.ru/about">О проекте</a>
+        </nav>
+        <div class="header__search search-form search-form--desktop">
+          <form role="form" action="${settings.PLP_URL}/course/" name="search" id="search-form" autocomplete="off">
+          <div class="form-group">
+              <span class="icon search-icon pull-right" id="search-icon"></span>
+              <input class="form-control" name="text" maxlength="255" id="search-form-text" placeholder="Поиск в каталоге"> </div>
+          </form>
+        </div>
+        % if user.is_authenticated():
+          <div class="header__dropdown-wrapper header__dropdown-login" id="sb_profile" style="z-index: 1000">
+              <div class="dropdown">
+                <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                  <span class="icon profile-icon"></span>
+                  <span class="dropdown-login__text">Мой профиль</span>
+                </span>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                  <%block name="navigation_dropdown_menu_links" >
+                    <li><a href="${settings.PLP_URL}/my/">Мои курсы</a></li>
+                    <li><a href="${settings.SSO_NPOED_URL}/profile/">Профиль</a></li>
+                  </%block>
+                  <li><a href="${reverse('social-logout')}" role="menuitem">Выйти</a></li>
+                </ul>
+              </div>
+
+              </div>
+          </div>
+        % else:
+          % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+              <div class="header__buttons" id="sb_login">
+                  <a href="{{ SSO_URL }}/register" class="header__button header__button--primary">Регистрация</a>
+              </div>
+          % endif
+        % endif
+      </div>
+    </div>
+</header>
+% if course:
+<!--[if lte IE 9]>
+<div class="ie-banner" aria-hidden="true">${_('<strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using {chrome_link} or {ff_link}.').format(chrome_link='<a href="https://www.google.com/chrome" target="_blank">Chrome</a>', ff_link='<a href="http://www.mozilla.org/firefox" target="_blank">Firefox</a>')}</div>
+<![endif]-->
+% endif
+
+<%include file="help_modal.html"/>
