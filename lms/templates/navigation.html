@@ -55,22 +55,26 @@ site_status_msg = get_site_status_msg(course_id)
                 </div>
               </span>
               <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                  <div class="header__search search-form search-form--mobile">
+                  <div class="header__search search-form search-form--mobile" style="display: none;">
                     <form role="form" action="${settings.PLP_URL}/course/" name="search" id="search-form" autocomplete="off">
                     <div class="form-group">
                         <span class="icon search-icon pull-right" id="search-icon"></span>
-                        <input type="submit" style="display: none;" value="Искать в каталоге" class="btn btn-default" id="m-search-btn">
+                        <input type="submit" style="display: none;" value="Искать в каталоге" class="btn btn-default">
                         <input class="form-control" name="text" maxlength="255" id="search-form-text" placeholder="Искать..."> </div>
                     </form>
                   </div>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="${settings.PLP_URL}/course/">
-                      Каталог курсов</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="${settings.PLP_URL}/partners/apply/" title="">
-                      Сотрудничество</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="http://npoed.ru/about">
-                      О проекте</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="${settings.PLP_URL}/feedback">
-                      Помощь</a></li>
+                  <li role="presentation">
+                  	<a href="${settings.PLP_URL}/course/">Каталог курсов</a>
+                  </li>
+                  <li role="presentation">
+                  	<a href="${settings.PLP_URL}/partners/apply/">Сотрудничество</a>
+                  </li>
+                  <li role="presentation">
+                  	<a href="http://npoed.ru/about">О проекте</a>
+                  </li>
+                  <li role="presentation">
+                  	<a href="${settings.PLP_URL}/feedback">Помощь</a>
+                  </li>
               </ul>
             </div>
         </div>

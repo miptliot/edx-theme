@@ -759,6 +759,9 @@ body {
       margin-left: 0%;
     }
   }
+  .pull-left {
+    float: left !important;
+  }
   @media (max-width: 767px) {
     .hidden-xs {
       display: none !important;
