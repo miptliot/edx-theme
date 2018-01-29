@@ -118,7 +118,7 @@ site_status_msg = get_site_status_msg(course_id)
         % else:
           % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
               <div class="header__buttons" id="sb_login">
-                  <a href="{{ SSO_URL }}/register" class="header__button header__button--primary">Регистрация</a>
+                  <a href="${settings.SSO_NPOED_URL}/register" class="header__button header__button--primary">Регистрация</a>
               </div>
           % endif
         % endif
