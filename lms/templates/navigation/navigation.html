@@ -1,9 +1,9 @@
 ## mako
 <%! from django.core.urlresolvers import reverse %>
-<%namespace name='static' file='/static_content.html'/>
+<%namespace name='static' file='../static_content.html'/>
 ##<%inherit file="/navigation.html"/>
 
-<%namespace file='main.html' import="login_query"/>
+<%namespace file='../main.html' import="login_query"/>
 <%!
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
@@ -131,4 +131,4 @@ site_status_msg = get_site_status_msg(course_id)
 <![endif]-->
 % endif
 
-<%include file="help_modal.html"/>
+<%include file="../help_modal.html"/>

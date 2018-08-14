@@ -1,3 +1,4 @@
-@import '../../../../../edx-platform/lms/static/sass/lms-main-v2.scss';
-
+$pattern-library-path: '../edx-pattern-library' !default;
+@import 'edx-pattern-library/pattern-library/sass/edx-pattern-library-ltr';
+@import 'build-lms-v2';
 @import '_default';
