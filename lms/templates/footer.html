@@ -1,5 +1,6 @@
 ## mako
 <%! from django.core.urlresolvers import reverse %>
+<%! from django.utils.translation import ugettext as _ %>
 <%namespace name='static' file='/static_content.html'/>
 <%! from datetime import datetime %>
 <%! from pytz import UTC %>
@@ -10,23 +11,23 @@
       <div class="col-md-5  col-sm-12 side left-side">
         <a href="${settings.PLP_URL}" class="pull-left"><img src="${static.url('default/images/logo-small.png')}" alt="" class="logo-small"></a>
         <ul class="list-unstyled">
-          <li><a href="${settings.PLP_URL}/course">Каталог курсов</a></li>
-          <li><a href="${settings.PLP_URL}/specialize">Направления подготовки</a></li>
+          <li><a href="${settings.PLP_URL}/course">${_('Course Catalog')}</a></li>
+          <li><a href="${settings.PLP_URL}/specialize">${_('Study Directions')}</a></li>
         </ul>
       </div>
       <div class="col-md-7 side right-side hidden-xs">
         <div class="row">
           <div class="col-md-5 col-sm-6">
             <ul class="list-unstyled narrow">
-              <li><a href="http://npoed.ru/about">О проекте</a></li>
-              <li><a href="${settings.PLP_URL}/faq/">Вопрос-ответ</a></li>
+              <li><a href="http://npoed.ru/about">${_('About')}</a></li>
+              <li><a href="${settings.PLP_URL}/faq/">${_('FAQ')}</a></li>
             </ul>
           </div>
           <div class="col-md-7 col-sm-6">
             <ul class="list-unstyled wide">
-              <li><a href="${settings.PLP_URL}/terms/">Пользовательское соглашение</a></li>
-              <li><a href="${settings.PLP_URL}/contacts">Контактная информация</a></li>
-              <li><a href="${settings.PLP_URL}/feedback">Задать вопрос</a></li>
+              <li><a href="${settings.PLP_URL}/terms/">${_('Terms of Policy')}</a></li>
+              <li><a href="${settings.PLP_URL}/contacts">${_('Contact')}</a></li>
+              <li><a href="${settings.PLP_URL}/feedback">${_('Help')}</a></li>
             </ul>
           </div>
         </div>
@@ -43,30 +44,30 @@
 
     <div class="row copyright">
       <div class="col-xs-12 col-md-5 copyright__sign">
-        © 2018 Открытое образование
+        © 2018 ${_('Openedu')}
         <ul class="list-inline">
           <li>
-            <a href="https://www.facebook.com/openeduRU" target="_blank" title="Группа Национальной платформы открытого образования в facebook">
+            <a href="https://www.facebook.com/openeduRU" target="_blank" title="${_('Openedu in facebook')}">
               <img src="${static.url('default/images/fb.png')}">
             </a>
           </li>
           <li>
-            <a href="https://vk.com/openeduRU" target="_blank" title="Группа Национальной платформы открытого образования в Vk">
+            <a href="https://vk.com/openeduRU" target="_blank" title="${_('Openedu in VK')}">
               <img src="${static.url('default/images/vk.png')}">
             </a>
           </li>
           <li>
-            <a href="http://ok.ru/group/52786563514445" target="_blank" title="Группа Национальной платформы открытого образования в Ok">
+            <a href="http://ok.ru/group/52786563514445" target="_blank" title="${_('Openedu in OK')}">
               <img src="${static.url('default/images/ok.png')}">
             </a>
           </li>
           <li>
-            <a href="https://instagram.com/openeduRU" target="_blank" title="Страница Национальной платформы открытого образования в instagram">
+            <a href="https://instagram.com/openeduRU" target="_blank" title="${_('Openedu in Instagram')}">
               <img src="${static.url('default/images/inst.png')}">
             </a>
           </li>
           <li>  
-            <a href="https://twitter.com/openeduRU" target="_blank" title="Страница Национальной платформы открытого образования в twitter">
+            <a href="https://twitter.com/openeduRU" target="_blank" title="${_('Openedu in twitter')}">
               <img src="${static.url('default/images/tw.png')}">
             </a>
           </li>
